@@ -1,8 +1,8 @@
-
 /**
  * Function that calls all the individual initialize
  */
 function initialize() {
+    initilizeSlider();
     initializeScroll();
     initializeAnimation();
   }
