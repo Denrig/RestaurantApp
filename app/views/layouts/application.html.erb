@@ -4,66 +4,47 @@
     <title>RestaurantApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= javascript_include_tag 'initializer' %>
-    <%= javascript_include_tag 'nouislider'%>
-    
     <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
     <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
   </head>
-
   <body onload="initialize()">
     <header id="header">
-      <div id="tool_bar">
-        <%= image_tag "logo.png", :class => "logo_img", :alt => "Logo" %>
-        <div class="main_band">Eureka Kaffe</div>
-        <div id="button_bar">
-          <a class="inside_pointer" href="#header">Home</a>
-          <a class="inside_pointer" href="#about">About</a>
-          <a class="inside_pointer" href=".">Blog</a>
-          <a class="inside_pointer" href="#carusel">Service</a>
-          <a class="inside_pointer" href="#about">Contacts</a>
+      <div id="tool-bar">
+        <%= image_tag "logo.png", :class => "logo-img", :alt => "Logo" %>
+        <div class="main-band">Eureka Kaffe</div>
+        <div id="button-bar">
+          <a class="inside-pointer" href="#header">Home</a>
+          <a class="inside-pointer" href="#about">About</a>
+          <a class="inside-pointer" href=".">Blog</a>
+          <a class="inside-pointer" href="#carusel">Service</a>
+          <a class="inside-pointer" href="#about">Contacts</a>
         </div>
       </div>
-      <div class="informational_text">
-        <span class="big_text">ORDERING FOOD</span><br>
+      <div class="informational-text">
+        <span class="big-text">ORDERING FOOD</span><br>
         <span>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<%= image_tag "dish.png" %>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ </span><br>
-        <span>Maecenas vells at magna sagittis venenatis. Integer pretium auctor magna, egestas justo gravida vitae.<br>In lacinia auctor auctor</span>
+        <span><%= ApplicationHelper::MAIN_TEXT%></span>
       </div>
     </header>
-    <div class="main_content">
-      <%= yield %>
-    </div>
+    <section id="main-content"></section>
     <footer id="about">
-    
       <h1>About</h1>
-      <span>This is a short description of our restaurant because why not </span>
+      <span><%= ApplicationHelper::DESCRIPTION %></span>
       <div id="info">
         <div class="contact">
           <h2>Contact</h2>
-          <span class="lable">Email</span>
-          <span class="content">email@email.com</span><br>
-          <span class="lable">Phone:</span>
-          <span class="content">1234567890</span><br>
-          <span class="lable">FAX:</span>
-          <span class="content">1231412435</span>
+          <% ApplicationHelper::CONTACTS.each do |key,value| %>
+            <span class="lable"><%= key.capitalize %>:</span>
+            <span class="content"><%= value %></span><br>
+          <% end %>
         </div>
         <div class="program">
           <h3>Schedule</h3>
-          <span class="lable">Monday:</span>
-          <span class="content">10AM-10PM</span><br>
-          <span class="lable">Tuesday:</span>
-          <span class="content">10AM-10PM</span><br>
-          <span class="lable">Wednesday:</span>
-          <span class="content">10AM-10PM</span><br>
-          <span class="lable">Thursday:</span>
-          <span class="content">10AM-10PM</span><br>
-          <span class="lable">Friday:</span>
-          <span class="content">10AM-10PM</span><br>
-          <span class="lable">Saturday:</span>
-          <span class="content">10AM-10PM</span><br>
-          <span class="lable">Sunday:</span>
-          <span class="content">10AM-10PM</span><br>
+          <% ApplicationHelper::SCHEDULE.each do |key,value| %>
+            <span class="lable"><%= key.capitalize %>:</span>
+            <span class="content"><%= value %></span><br>
+          <% end %>
         </div>
       </div>
     </footer>
