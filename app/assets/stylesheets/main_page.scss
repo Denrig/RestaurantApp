@@ -1,0 +1,183 @@
+//COLORS
+$TOOLBAR_TEXT_COLOR: #ffffff;
+$SHADOW_COLOR: black;
+
+$BORDER_RADIUS: 15px;
+$TRANZITION_TIME: 0.5s;
+
+$FONT_FAMILY: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+  "Lucida Sans", Arial, sans-serif;
+
+#header {
+  height: 50%;
+  width: 100%;
+  background-color: black;
+  text-align: center;
+
+  background-image: asset-url("restaurant.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  #tool_bar {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+
+    //ROUNDED CORNERS
+    border-bottom-right-radius: $BORDER_RADIUS;
+    border-bottom-left-radius: $BORDER_RADIUS;
+
+    width: 100%;
+    height: 50px;
+
+    //THIS WILL BE CAHANGED IN JS
+    background-color: transparent;
+
+    //ANIMATION
+    transition: background-color 0.3s linear, color 0.3s linear;
+
+    .logo_img {
+      max-width: 50px;
+      max-height: 50px;
+      margin-left: 50px;
+    }
+
+    .main_band {
+      margin-left: 20px;
+      font-weight: bolder;
+      font-size: 20px;
+
+      color: white;
+    }
+
+    #button_bar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      height: 100%;
+      width: 100%;
+      margin-top: 0px;
+      padding-right: 50px;
+
+      font-family: $FONT_FAMILY;
+      font-weight: bold;
+      font-size: 18px;
+
+      .inside_pointer {
+        margin-left: 50px;
+        text-decoration: none;
+        //THIS WILL ASLSO BE CHANGED WITH JS
+        color: $TOOLBAR_TEXT_COLOR;
+      }
+
+      .inside_pointer::before {
+        content: "•";
+        color: orange;
+        margin-right: 5px;
+      }
+
+      .inside_pointer:last-of-type {
+        border-bottom-right-radius: $BORDER_RADIUS;
+      }
+
+      .inside_pointer:hover {
+        transition: background-color $TRANZITION_TIME linear;
+        color: gray;
+      }
+    }
+  }
+
+  .fixed {
+    position: fixed !important;
+    background-color: white !important;
+    box-shadow: inset 0 0 3px #000000 !important;
+
+    .inside_pointer,
+    .main_band {
+      color: black !important;
+    }
+  }
+
+  #carusel {
+    background-color: purple;
+    height: 100%;
+
+    img {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .informational_text {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    white-space: wrap;
+    color: white;
+
+    font-family: cursive;
+    font-size: 16px;
+
+    .big_text {
+      font-size: 30px;
+      font-weight: bolder;
+      margin: 50px;
+    }
+
+    span {
+      margin: 15px;
+    }
+
+    img {
+      height: 30px;
+      width: 30px;
+    }
+  }
+}
+
+$LABEL_FONT: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+$CONTENT_FONT: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+$BACKGROUND_COLOR: rgb(65, 64, 64);
+
+#about {
+  padding: 20px;
+  background-color: $BACKGROUND_COLOR;
+  min-height: 10%;
+
+  #info {
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+    border-top: 1px solid black;
+
+    .lable {
+      font-family: $LABEL_FONT;
+      font-weight: bold;
+    }
+
+    .content {
+      font-family: $CONTENT_FONT;
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: orange !important;
+  }
+
+  .lable:hover,
+  .content:hover {
+    color: white;
+  }
+
+  span {
+    font-family: $CONTENT_FONT;
+    font-weight: bold;
+    color: grey;
+  }
+}
