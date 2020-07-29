@@ -1,0 +1,19 @@
+<div id="product-display">
+  <div id="sorting-bar">
+    <div class="filter-div">
+      <span>PRICE RANGE:</span>
+      <div id="slider"></div>
+      <%= javascript_include_tag 'nouislider' %>
+    </div>
+  </div>
+  <div class="products-list">
+    <% @products.each do |product| %>
+      <div class='product-block'>
+        <%= image_tag product.image,class: 'product-image' %>
+        <div class='product-name'><%= product.title%></div>
+        <div class='product-category'><%= product.category%></div>
+        <div class='product-price'><%= product.price.to_s + " LEI"%></div>
+      </div>
+    <% end %>
+  </div>
+</div>
