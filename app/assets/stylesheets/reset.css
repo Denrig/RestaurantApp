@@ -88,8 +88,8 @@ video {
   padding: 0 !important;
   border: 0 !important;
   font-size: 100% !important;
-  font: inherit !important;
-  vertical-align: baseline !important;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article,
