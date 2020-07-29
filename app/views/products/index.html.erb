@@ -5,14 +5,15 @@
       <div id="slider"></div>
       <%= javascript_include_tag 'nouislider' %>
     </div>
+    <%= link_to 'Add product', products_new_url,class: ["manager-button","flex-centered"] %>
   </div>
   <div class="products-list">
     <% @products.each do |product| %>
-      <div class='product-block'>
+      <div class='product-block flex-centerd'>
         <%= image_tag product.image,class: 'product-image' %>
-        <div class='product-name'><%= product.title%></div>
-        <div class='product-category'><%= product.category%></div>
-        <div class='product-price'><%= product.price.to_s + " LEI"%></div>
+        <div class='product-name flex-centered'><%= product.title%></div>
+        <div class='product-category flex-centered'><%= product.category%></div>
+        <div class='product-price flex-centered'><%= product.price.to_s + " LEI"%></div>
       </div>
     <% end %>
   </div>

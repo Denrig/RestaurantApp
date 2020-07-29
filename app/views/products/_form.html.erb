@@ -1,4 +1,4 @@
-<%= form_for @product do |form|%>
+<%= form_for( @product,:html=>{:class =>"new-product" }) do |form|%>
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> found while trying to save the product</h2>
