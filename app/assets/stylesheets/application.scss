@@ -166,6 +166,8 @@ $FONT_FAMILY: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
 #main-content {
   min-height: 50%;
   box-shadow: inset 0px 0px 5px 1px $SHADOW_COLOR;
+  text-align: center;
+  padding: 20px;
 }
 
 $LABEL_FONT: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
