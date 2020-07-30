@@ -4,7 +4,7 @@
       %span PRICE RANGE:
       #slider
       = javascript_include_tag 'nouislider'
-    = link_to 'Add Product', products_new_url ,class: ["manager-button","flex-centered"]
+    = link_to 'Add Product', 'products/new' ,class: ["manager-button","flex-centered"]
   .products-list
     - @products.each do |product|
       .product-block.flex-centered

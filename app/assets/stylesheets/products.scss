@@ -16,6 +16,8 @@ $PRICE_BACKGROUND_COLOR: #d3c29757;
 $PRODUCTS_FONT: "Comic Sans MS";
 $PRODUCTS_FONT_COLOR: orange;
 
+$ANIMATION_TIME: 0.2s;
+
 
 //GENERAL CLASSES
 .flex-centered {
@@ -96,14 +98,16 @@ $PRODUCTS_FONT_COLOR: orange;
     .product-block {
       flex-direction: column;
 
-      width: 400px !important;
+      width: 400px;
       height: 400px;
       padding-top: 15px;
       margin: 10px;
 
       font-family: $PRODUCTS_FONT;
+      font-style: italic;
 
-      transition: width 0.2s linear, height 0.2s linear, opacity 0.1s linear;
+
+      transition: width $ANIMATION_TIME linear, height $ANIMATION_TIME linear,box-shadow $ANIMATION_TIME linear;
 
       .product-image {
         width: 70%;
@@ -119,22 +123,24 @@ $PRODUCTS_FONT_COLOR: orange;
 
         font-size: 26px;
         font-weight: bolder;
-        font-style: italic;
       }
 
       .product-category {
         background-color: $CATEGORY_BACKGROUND_COLOR;
-        opacity: 50%;
+        opacity: 80%;
 
-        height: 2vh;
+        height: 3vh;
+
+        font-size: 22px;
       }
 
       .product-price {
         background-color: $PRICE_BACKGROUND_COLOR;
 
-        height: 3vh;
+        height: 4vh;
 
         font-weight: bold;
+        font-size: 24px;
         color: $PRODUCTS_FONT_COLOR;
       }
     }

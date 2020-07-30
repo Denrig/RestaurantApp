@@ -1,5 +1,5 @@
 !!!
-%html 
+%html
   %head
     %title RestaurantApp
     = csrf_meta_tag
@@ -14,11 +14,11 @@
         = image_tag 'logo.png', alt: 'Logo', class: 'logo-img'
         .main-brand Euraka Kaffe
         #button-bar
-          %a.inside-pointer{:href => '#header'} Home
-          %a.inside-pointer{:href => '#about'} About
-          %a.inside-pointer{:href => '.'} Blog
-          %a.inside-pointer{:href => '.'} Service
-          %a.inside-pointer{:href => '#about'} Contacts
+          = link_to 'Home' ,".",class: ["inside-pointer"]
+          = link_to 'About' ,".",class: ["inside-pointer"]
+          = link_to 'Blog' ,".",class: ["inside-pointer"]
+          = link_to 'Service' ,".",class: ["inside-pointer"]
+          = link_to 'Contacts' ,".",class: ["inside-pointer"]
       .informational-text
         %span.big-text ORDERING FOOD
         %br/
