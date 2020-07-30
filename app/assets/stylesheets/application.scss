@@ -69,14 +69,6 @@ $FONT_FAMILY: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       margin-left: 50px;
     }
 
-    .main-band {
-      margin-left: 20px;
-      font-weight: bolder;
-      font-size: 20px;
-
-      color: white;
-    }
-
     #button-bar {
       display: inline-flex;
       align-items: center;
@@ -90,28 +82,6 @@ $FONT_FAMILY: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       font-family: $FONT_FAMILY;
       font-weight: bold;
       font-size: 18px;
-
-      .inside-pointer {
-        margin-left: 50px;
-        text-decoration: none;
-        //THIS WILL ASLSO BE CHANGED WITH JS
-        color: $TOOLBAR_TEXT_COLOR;
-      }
-
-      .inside-pointer::before {
-        content: "•";
-        color: orange;
-        margin-right: 5px;
-      }
-
-      .inside-pointer:last-of-type {
-        border-bottom-right-radius: $BORDER_RADIUS;
-      }
-
-      .inside-pointer:hover {
-        transition: background-color $TRANZITION_TIME linear;
-        color: gray;
-      }
     }
   }
 
@@ -121,9 +91,42 @@ $FONT_FAMILY: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     box-shadow: inset 0 0 3px #000000 !important;
 
     .inside-pointer,
-    .main-band {
-      color: black !important;
+    .main-brand {
+      color: black;
     }
+  }
+
+  .main-brand {
+    margin-left: 20px;
+    font-weight: bolder;
+    font-size: 20px;
+
+    color: white;
+  }
+
+  .inside-pointer {
+    text-decoration: none;
+    color: $TOOLBAR_TEXT_COLOR;
+  }
+
+  .inside-pointer::before {
+    content: "•";
+    color: orange;
+    margin-right: 25px;
+    margin-left: 25px;
+  }
+
+  .inside-pointer:last-of-type {
+    border-bottom-right-radius: $BORDER_RADIUS;
+  }
+
+  .inside-pointer:first-of-type::before {
+    content: none;
+  }
+
+  .inside-pointer:hover {
+    color: gray;
+    background-color: inherit;
   }
 
   #carusel {

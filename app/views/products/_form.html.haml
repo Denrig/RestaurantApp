@@ -1,0 +1,22 @@
+= form_for( @product,:html=>{:class =>"new-product" }) do |form|
+  - if @product.errors.any?
+    #error-explanation
+      %h2 #{pluralize(@product.errors.count, "error")} found while trying to save the product
+      %ul
+        - @product.errors.full_messages.each do |message|
+          %li= message
+  .input-field
+    = form.label :title
+    = form.text_field :title
+  .input-field
+    = form.label :category
+    = form.text_field :category
+  .input-field
+    = form.label :price
+    = form.number_field :price
+  .input-field
+    = form.label :image
+    = form.file_field :image
+  .actions
+    =form.submit
+

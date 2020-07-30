@@ -158,11 +158,15 @@ $PRODUCTS_FONT_COLOR: orange;
 
   .new-product {
     width: 500px;
-    #error_explanation {
+    #error-explanation {
+      padding: 0;
       width: 500px !important;
-      border-color: orange;
+      border: 1px solid orange;
+      background-color:  #f0f0f0;
       h2 {
+        margin: 0;
         background-color: orange;
+        height: 3vh;
       }
     }
     .input-field,
@@ -185,7 +189,7 @@ $PRODUCTS_FONT_COLOR: orange;
     .field_with_errors {
       background-color: transparent;
       input {
-        border: 1px solid red;
+        border: 1px solid orange;
       }
     }
     input[type="submit"] {

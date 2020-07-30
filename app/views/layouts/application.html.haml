@@ -28,22 +28,20 @@
     %footer#about
       %h1 About
       %span= ApplicationHelper::DESCRIPTION
-      .info
+      #info
         .contact
           %h2 Contact
           - ApplicationHelper::CONTACTS.each do |key,value|
             %span.label
-              = key.capitalize 
+              = key.capitalize
               \:
-            %span.contenct= value 
+            %span.content= value
             %br/
         .program
-          %h3 Shedule
+          %h3 Schedule
           - ApplicationHelper::SCHEDULE.each do |key,value|
             %span.label
-              = key.capitalize 
+              = key.capitalize
               \:
-            %span.contenct= value 
+            %span.content= value
             %br/
-              
-

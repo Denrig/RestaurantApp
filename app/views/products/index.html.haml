@@ -1,0 +1,14 @@
+#product-display
+  #sorting-bar
+    .filter-div
+      %span PRICE RANGE:
+      #slider
+      = javascript_include_tag 'nouislider'
+    = link_to 'Add Product', products_new_url ,class: ["manager-button","flex-centered"]
+  .products-list
+    - @products.each do |product|
+      .product-block.flex-centered
+        = image_tag product.image, alt: product.title, class: 'product-image'
+        .product-name.flex-centered= product.title
+        .product-category.flex-centered= product.category
+        .product-price.flex-centered= product.price
