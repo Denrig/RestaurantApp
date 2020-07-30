@@ -1,3 +1,4 @@
+# Controller that handles the view and insert of products
 class ProductsController < ApplicationController
   def index
     @products = Product.all
