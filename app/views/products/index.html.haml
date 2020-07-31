@@ -10,7 +10,6 @@
         = select_tag 'sorting',options_for_select([]),class: ['selector'],prompt: 'Sort'
       .selector-container
         = select_tag 'vegetarian',options_for_select([]),class: ['selector'],prompt: 'Vegetarian'
-
     = link_to 'Add Product', new_product_path ,class: ["manager-button","flex-centered"]
   .products-list
     - @products.each do |product|
