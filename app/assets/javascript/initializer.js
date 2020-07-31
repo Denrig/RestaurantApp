@@ -3,7 +3,7 @@
  */
 function initialize() {
   initializeScroll();
-  initilizeSlider('slider')
+  initilizeSlider("slider");
 }
 
 /**
@@ -21,8 +21,8 @@ function initializeScroll() {
  * This is the script for the slider with 2 handels-->
  */
 function initilizeSlider(sliderName) {
-  var slider = $('#'+sliderName)[0]
-  if(slider)
+  var slider = $("#" + sliderName)[0];
+  if (slider)
     noUiSlider.create(slider, {
       start: [1, 100],
       connect: true,
