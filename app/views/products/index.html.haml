@@ -4,6 +4,10 @@
       %span PRICE RANGE:
       #slider
       = javascript_include_tag 'nouislider'
+      = select_tag 'category',options_for_select(@products.map{|product| product.category}),class: ['selector'],prompt: 'Category'
+      = select_tag 'sorting',options_for_select([]),class: ['selector'],prompt: 'Sort'
+      = select_tag 'vegetarian',options_for_select([]),class: ['selector'],prompt: 'Vegetarian'
+
     = link_to 'Add Product', new_product_path ,class: ["manager-button","flex-centered"]
   .products-list
     - @products.each do |product|

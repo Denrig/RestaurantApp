@@ -21,8 +21,8 @@ function initializeScroll() {
  * This is the script for the slider with 2 handels-->
  */
 function initilizeSlider(sliderName) {
-  var slider = document.getElementById(sliderName);
-  if (slider) {
+  var slider = $('#'+sliderName)[0]
+  if(slider)
     noUiSlider.create(slider, {
       start: [1, 100],
       connect: true,
@@ -33,5 +33,4 @@ function initilizeSlider(sliderName) {
       },
       tooltips: [true, true],
     });
-  }
 }
