@@ -18,7 +18,6 @@ $PRODUCTS_FONT_COLOR: orange;
 
 $ANIMATION_TIME: 0.2s;
 
-
 //GENERAL CLASSES
 .flex-centered {
   display: flex;
@@ -26,28 +25,42 @@ $ANIMATION_TIME: 0.2s;
   justify-content: center;
   width: 100%;
 }
+.selector-container {
+  height: 100%;
+  margin-left:25px;
 
-.selector {
-  border: none;
-  background-color: transparent;
+  .selector {
+    border: none;
+    background-color: transparent;
 
-  height: inherit;
-  margin-left: 20px;
+    height: inherit;
+    margin-left: 20px;
 
-  font-family: $SORTING_FONT;
-  font-size: 18px;
-  font-weight: bolder;
-  color: $SORTING_FONT_COLOR;
+    font-family: $SORTING_FONT;
+    font-size: 18px;
+    font-weight: bolder;
+    color: $SORTING_FONT_COLOR;
 
-  transition: background-color 1s;
+    transition: background-color 1s;
 
-  option {
-    height: 100px;
-    background-color: $SORTING_BACKGROUND_COLOR;
+    //Remove the arrow apperance
+    -webkit-appearance: none;
+
+    option {
+      height: 100px;
+      background-color: $SORTING_BACKGROUND_COLOR;
+    }
   }
 }
+.selector-container:after {
+  content: "";
+  background: asset-url("drop-down.svg") no-repeat;
+  background-size: 13px 13px;
+  background-position: 50% 50%;
+  padding: 0 10px;
+}
 
-.manager-button{
+.manager-button {
   width: 150px;
   text-decoration: none;
   color: $SORTING_FONT_COLOR;
@@ -106,8 +119,8 @@ $ANIMATION_TIME: 0.2s;
       font-family: $PRODUCTS_FONT;
       font-style: italic;
 
-
-      transition: width $ANIMATION_TIME linear, height $ANIMATION_TIME linear,box-shadow $ANIMATION_TIME linear;
+      transition: width $ANIMATION_TIME linear, height $ANIMATION_TIME linear,
+        box-shadow $ANIMATION_TIME linear;
 
       .product-image {
         width: 70%;
@@ -168,7 +181,7 @@ $ANIMATION_TIME: 0.2s;
       padding: 0;
       width: 500px !important;
       border: 1px solid orange;
-      background-color:  #f0f0f0;
+      background-color: #f0f0f0;
       h2 {
         margin: 0;
         background-color: orange;
