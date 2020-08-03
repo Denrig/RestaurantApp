@@ -1,19 +1,19 @@
 //SORTING BAR
-$SORTING_BACKGROUND_COLOR: #a0999a88;
+$sorting-background-color: #a0999a88;
 
-$SORTING_FONT: Verdana;
-$SORTING_FONT_COLOR: rgb(0, 0, 0);
+$sorting-font: Verdana;
+$sorting-font-color: rgb(0, 0, 0);
 //PRODUCTS DISPLAY
-$BORDER_COLOR: rgba(0, 0, 0, 0.24);
 
-$NAME_BACKGROUND_COLOR: hsla(0, 0%, 35%, 0.137);
-$CATEGORY_BACKGROUND_COLOR: #96969613;
-$PRICE_BACKGROUND_COLOR: #d3c29757;
+$name-background-color: hsla(0, 0%, 35%, 0.137);
+$category-background-color: #96969613;
+$price-background-color: #d3c29757;
+$information-background: #f0f0f0;
 
-$PRODUCTS_FONT: "Comic Sans MS";
-$PRODUCTS_FONT_COLOR: orange;
+$products-font: "Comic Sans MS";
+$products-font-color: orange;
 
-$ANIMATION_TIME: 0.2s;
+$animation-time: 0.2s;
 
 //GENERAL CLASSES
 .flex-centered {
@@ -33,10 +33,10 @@ $ANIMATION_TIME: 0.2s;
     height: inherit;
     margin-left: 20px;
 
-    font-family: $SORTING_FONT;
+    font-family: $sorting-font;
     font-size: 18px;
     font-weight: bolder;
-    color: $SORTING_FONT_COLOR;
+    color: $sorting-font-color;
 
     transition: background-color 1s;
 
@@ -45,7 +45,7 @@ $ANIMATION_TIME: 0.2s;
 
     option {
       height: 100px;
-      background-color: $SORTING_BACKGROUND_COLOR;
+      background-color: $sorting-background-color;
     }
   }
 }
@@ -60,8 +60,8 @@ $ANIMATION_TIME: 0.2s;
 .manager-button {
   width: 150px;
   text-decoration: none;
-  color: $SORTING_FONT_COLOR;
-  font-family: $SORTING_FONT;
+  color: $sorting-font-color;
+  font-family: $sorting-font;
   font-size: 18px;
   font-weight: bold;
 }
@@ -72,7 +72,7 @@ $ANIMATION_TIME: 0.2s;
   #sorting-bar {
     display: flex;
     justify-content: space-between;
-    background-color: $SORTING_BACKGROUND_COLOR;
+    background-color: $sorting-background-color;
     margin: 0;
 
     height: 50px;
@@ -88,10 +88,10 @@ $ANIMATION_TIME: 0.2s;
       width: inherit;
       height: inherit;
 
-      font-family: $SORTING_FONT !important;
+      font-family: $sorting-font !important;
       font-size: 18px;
       font-weight: bolder;
-      color: $SORTING_FONT_COLOR;
+      color: $sorting-font-color;
 
       #slider {
         margin-left: 50px;
@@ -113,11 +113,11 @@ $ANIMATION_TIME: 0.2s;
       padding-top: 15px;
       margin: 10px;
 
-      font-family: $PRODUCTS_FONT;
+      font-family: $products-font;
       font-style: italic;
 
-      transition: width $ANIMATION_TIME linear, height $ANIMATION_TIME linear,
-        box-shadow $ANIMATION_TIME linear;
+      transition: width $animation-time linear, height $animation-time linear,
+        box-shadow $animation-time linear;
 
       .product-image {
         width: 70%;
@@ -127,7 +127,7 @@ $ANIMATION_TIME: 0.2s;
       }
 
       .product-name {
-        background-color: $NAME_BACKGROUND_COLOR;
+        background-color: $name-background-color;
 
         height: 5vh;
 
@@ -136,7 +136,7 @@ $ANIMATION_TIME: 0.2s;
       }
 
       .product-category {
-        background-color: $CATEGORY_BACKGROUND_COLOR;
+        background-color: $category-background-color;
         opacity: 80%;
 
         height: 3vh;
@@ -145,13 +145,13 @@ $ANIMATION_TIME: 0.2s;
       }
 
       .product-price {
-        background-color: $PRICE_BACKGROUND_COLOR;
+        background-color: $price-background-color;
 
         height: 4vh;
 
         font-weight: bold;
         font-size: 24px;
-        color: $PRODUCTS_FONT_COLOR;
+        color: $products-font-color;
       }
     }
 
@@ -159,7 +159,7 @@ $ANIMATION_TIME: 0.2s;
       width: 415px;
       height: 415px;
 
-      box-shadow: 0px 0px 5px 1px $PRODUCTS_FONT_COLOR;
+      box-shadow: 0px 0px 5px 1px $products-font-color;
     }
   }
 }
@@ -178,18 +178,18 @@ $ANIMATION_TIME: 0.2s;
       padding: 0;
       width: 500px !important;
       border: 1px solid orange;
-      background-color: #f0f0f0;
+      background-color: $information-background;
       h2 {
         margin: 0;
         background-color: orange;
         height: 3vh;
       }
     }
-    .input-field,
+    .input-field ,
     .field_with_errors {
       display: block;
       label {
-        font-family: $PRODUCTS_FONT;
+        font-family: $products-font;
         font-weight: bold;
         font-size: 24px;
         margin: 10px;
