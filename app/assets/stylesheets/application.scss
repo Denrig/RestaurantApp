@@ -14,6 +14,9 @@
  *= require_self
  */
 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 html,
 body {
   height: 100%;
@@ -76,6 +79,31 @@ $font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       font-family: $font-family;
       font-weight: bold;
       font-size: 18px;
+      .inside-pointer {
+        text-decoration: none;
+        color: $toolbar-text-color;
+        &::before {
+          content: "•";
+          color: orange;
+          margin-right: 25px;
+          margin-left: 25px;
+        }
+        &:last-of-type {
+          border-bottom-right-radius: $border-radiu;
+        }
+        &:first-of-type::before {
+          content: none;
+        }
+        &:hover {
+          color: gray;
+          background-color: inherit;
+        }
+      }
+      .btn-primary{
+        margin-left: 15px;
+        background-color: orange;
+        border-color: orange;
+      }
     }
   }
 
@@ -86,7 +114,7 @@ $font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     float: none;
     .inside-pointer,
     .main-brand {
-      color: black;
+      color: black !important;
     }
   }
 
@@ -96,27 +124,6 @@ $font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     color: white;
     font-weight: bolder;
     font-size: 20px;
-  }
-
-  .inside-pointer {
-    text-decoration: none;
-    color: $toolbar-text-color;
-    &::before {
-      content: "•";
-      color: orange;
-      margin-right: 25px;
-      margin-left: 25px;
-    }
-    &:last-of-type {
-      border-bottom-right-radius: $border-radiu;
-    }
-    &:first-of-type::before {
-      content: none;
-    }
-    &:hover {
-      color: gray;
-      background-color: inherit;
-    }
   }
 }
 
