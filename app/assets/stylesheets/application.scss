@@ -14,7 +14,6 @@
  *= require_self
  */
 
-
 html,
 body {
   height: 100%;
@@ -102,26 +101,22 @@ $font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
   .inside-pointer {
     text-decoration: none;
     color: $toolbar-text-color;
-  }
-
-  .inside-pointer::before {
-    content: "•";
-    color: orange;
-    margin-right: 25px;
-    margin-left: 25px;
-  }
-
-  .inside-pointer:last-of-type {
-    border-bottom-right-radius: $border-radiu;
-  }
-
-  .inside-pointer:first-of-type::before {
-    content: none;
-  }
-
-  .inside-pointer:hover {
-    color: gray;
-    background-color: inherit;
+    &::before {
+      content: "•";
+      color: orange;
+      margin-right: 25px;
+      margin-left: 25px;
+    }
+    &:last-of-type {
+      border-bottom-right-radius: $border-radiu;
+    }
+    &:first-of-type::before {
+      content: none;
+    }
+    &:hover {
+      color: gray;
+      background-color: inherit;
+    }
   }
 }
 

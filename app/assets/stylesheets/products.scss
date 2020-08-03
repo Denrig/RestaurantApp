@@ -1,3 +1,6 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 //SORTING BAR
 $sorting-background-color: #a0999a88;
 
@@ -48,13 +51,13 @@ $animation-time: 0.2s;
       background-color: $sorting-background-color;
     }
   }
-}
-.selector-container:after {
-  content: "";
-  background: asset-url("drop-down.svg") no-repeat;
-  background-size: 13px 13px;
-  background-position: 50% 50%;
-  padding: 0 10px;
+  &:after {
+    content: "";
+    background: asset-url("drop-down.svg") no-repeat;
+    background-size: 13px 13px;
+    background-position: 50% 50%;
+    padding: 0 10px;
+  }
 }
 
 .manager-button {
@@ -153,13 +156,12 @@ $animation-time: 0.2s;
         font-size: 24px;
         color: $products-font-color;
       }
-    }
+      &:hover {
+        width: 415px;
+        height: 415px;
 
-    .product-block:hover {
-      width: 415px;
-      height: 415px;
-
-      box-shadow: 0px 0px 5px 1px $products-font-color;
+        box-shadow: 0px 0px 5px 1px $products-font-color;
+      }
     }
   }
 }
@@ -185,7 +187,7 @@ $animation-time: 0.2s;
         height: 3vh;
       }
     }
-    .input-field ,
+    .input-field,
     .field_with_errors {
       display: block;
       label {
