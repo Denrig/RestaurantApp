@@ -1,2 +1,6 @@
-= @user.name
-= @user.email
+.row
+  %aside.col-md-3
+    %secition.user-info
+      %h1
+        = @user.name
+        = gravatar_for @user        

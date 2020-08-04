@@ -1,3 +1,18 @@
-%h1 Users#new
-%p Find me in app/views/users/new.html.haml
-= debug(params) if Rails.env.development?
+%h1 Sign Up
+
+.row
+  .col-md-6.com-md-offset-3
+    = form_with model:@user,local: true,class: ['user-form'] do |f|
+      = f.label :name
+      = f.text_field :name
+
+      = f.label :email
+      = f.email_field :email
+
+      = f.label :password
+      = f.password_field :password
+
+      = f.label :password_confirmation,"Confirm Passoword"
+      = f.password_field :password_confirmation
+
+      = f.submit "Create my account", class: "btn btn-primary" 

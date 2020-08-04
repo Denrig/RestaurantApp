@@ -1,3 +1,25 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* sidebar */
+.gravatar {
+  border-radius: 100%;
+}
+.gravatar_edit {
+  margin-top: 15px;
+  border-radius: 100%;
+}
+
+/* forms */
+input,
+textarea,
+select,
+.uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+}
+input {
+  height: auto !important;
+}

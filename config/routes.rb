@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :products , only: %i[index new create]
   
   get '/signup', to: 'users#new'
+
+  resources :users
 end
