@@ -1,0 +1,6 @@
+- if @user.errors.any?
+  #error-explanation
+    %h2 #{pluralize(@user.errors.count, "error")} found while trying to save the product
+    %ul
+      - @user.errors.full_messages.each do |message|
+        %li= message
