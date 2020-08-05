@@ -3,6 +3,7 @@
  */
 function initialize() {
   initializeScroll();
+  initilizeSlider("slider");
 }
 
 /**
@@ -14,4 +15,22 @@ function initializeScroll() {
       $("#tool-bar").removeClass("fixed");
     } else $("#tool-bar").addClass("fixed");
   });
+}
+
+/**
+ * This is the script for the slider with 2 handels-->
+ */
+function initilizeSlider(sliderName) {
+  var slider = $("#" + sliderName)[0];
+  if (slider)
+    noUiSlider.create(slider, {
+      start: [1, 100],
+      connect: true,
+      step: 1,
+      range: {
+        min: 1,
+        max: 100,
+      },
+      tooltips: [true, true],
+    });
 }
