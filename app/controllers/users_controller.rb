@@ -10,10 +10,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:succes]="Welcome to my restaurant!"
+      reset_session
+      log_in @user
+      flash[:succes] = 'Welcome to my restaurant!'
       redirect_to @user
     else
-      flash[:danger]="Something went wrong!"
+      flash[:danger] = 'Something went wrong!'
       render 'new'
     end
   end
