@@ -2,18 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-$main-font: "Comic Sans MS";
+@import "./shared/variables.scss";
 
-.login-section{
-
+.login-section {
   height: 100% !important;
   width: 100%;
-  .login-form{
+  .login-form {
     flex-direction: column;
     height: 100%;
     padding: 10px;
-    font-family: $main-font;
-    input{
+    font-family: $products-font;
+    input {
       width: 300px;
       margin: 15px 0 15px 0;
       text-align: center;

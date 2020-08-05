@@ -1,5 +1,5 @@
 = render 'shared/form_errors',entity: @product
-= form_for( @product,:html=>{:class =>"new-product" }) do |form|
+= form_for( @product,:html => {:class =>"new-product" }) do |form|
   .input-field
     = form.label :title
     = form.text_field :title

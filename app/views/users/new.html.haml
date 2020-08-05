@@ -1,20 +1,13 @@
 %h1 Sign Up
 
-.row
+.sign-up-section.flex-centered
   .col-md-6.com-md-offset-3
-    = form_with model:@user,local: true,class: ['user-form'] do |f|
+    = form_with model:@user,local: true,class: ['sign-up-form','flex-centered'] do |f|
       = render 'shared/form_errors',entity: @user
       
-      = f.label :name
-      = f.text_field :name, class: 'form-control'
-
-      = f.label :email
-      = f.email_field :email, class: 'form-control'
-
-      = f.label :password
-      = f.password_field :password, class: 'form-control'
-
-      = f.label :password_confirmation,"Confirm Passoword"
-      = f.password_field :password_confirmation, class: 'form-control'
+      = f.text_field :name, class: 'form-control',placeholder: 'Name'
+      = f.email_field :email, class: 'form-control',placeholder: 'Email'
+      = f.password_field :password, class: 'form-control',placeholder: 'Password'
+      = f.password_field :password_confirmation, class: 'form-control',placeholder: 'Confirm Password'
 
       = f.submit "Create my account", class: "btn btn-primary" 

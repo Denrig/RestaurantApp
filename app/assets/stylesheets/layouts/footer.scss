@@ -1,0 +1,42 @@
+@import "./shared/variables.scss";
+
+#about {
+  width: 100%;
+  background-color: $footer-background-color;
+  min-height: 10%;
+  padding: 10px;
+
+  #info {
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+    border-top: 1px solid black;
+
+    .lable {
+      font-family: $label-font;
+      font-weight: bold;
+    }
+
+    .content {
+      font-family: $content-font;
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: orange !important;
+  }
+
+  .lable:hover,
+  .content:hover {
+    color: white;
+  }
+
+  span {
+    font-family: $content-font;
+    font-weight: bold;
+    color: grey;
+  }
+}

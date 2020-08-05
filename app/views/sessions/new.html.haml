@@ -1,6 +1,6 @@
 .login-section
   = render '/shared/flash_messages' 
-  =form_with url: login_path, scope: :session, local: true,class: ['login-form','flex-centered'] do |f|
+  = form_with url: login_path, scope: :session, local: true,class: ['login-form','flex-centered'] do |f|
     %h1
       Login
     = f.email_field :email, class: 'form-control',placeholder:"Email" 

@@ -1,19 +1,4 @@
-//SORTING BAR
-$sorting-background-color: #a0999a88;
-
-$sorting-font: Verdana;
-$sorting-font-color: rgb(0, 0, 0);
-//PRODUCTS DISPLAY
-
-$name-background-color: hsla(0, 0%, 35%, 0.137);
-$category-background-color: #96969613;
-$price-background-color: #d3c29757;
-$information-background: #f0f0f0;
-
-$products-font: "Comic Sans MS";
-$products-font-color: orange;
-
-$animation-time: 0.2s;
+@import "./shared/variables.scss";
 
 //GENERAL CLASSES
 .flex-centered {
