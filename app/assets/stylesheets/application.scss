@@ -14,7 +14,7 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets";
+
 @import "bootstrap";
 
 html,
@@ -79,11 +79,11 @@ $font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       font-family: $font-family;
       font-weight: bold;
       font-size: 18px;
-      .inside-pointer {
-        text-decoration: none;
+      .inside-pointer{
+        text-decoration: none ;
         color: $toolbar-text-color;
         &::before {
-          content: "•";
+          content: "•" !important;
           color: orange;
           margin-right: 25px;
           margin-left: 25px;
@@ -91,12 +91,10 @@ $font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
         &:last-of-type {
           border-bottom-right-radius: $border-radiu;
         }
-        &:first-of-type::before {
-          content: none;
-        }
         &:hover {
           color: gray;
           background-color: inherit;
+          cursor: pointer !important;
         }
       }
       .btn-primary{
