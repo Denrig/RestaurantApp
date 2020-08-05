@@ -3,7 +3,7 @@
 .row
   .col-md-6.com-md-offset-3
     = form_with model:@user,local: true,class: ['user-form'] do |f|
-      = render 'shared/error_messages',locals: {entity: @user}
+      = render 'shared/form_errors',locals: {entity: @user}
       
       = f.label :name
       = f.text_field :name, class: 'form-control'
