@@ -1,0 +1,15 @@
+.cart-display
+  .informations
+    This is your personal cart!
+  .products-list
+    .product-item.flex-centered
+      .title
+        Name
+      .price
+        Price
+    - @products.each do |product|
+      .product-item.flex-centered
+        .title
+          = product.title
+        .price
+          = product.price.to_s+ " $"

@@ -157,17 +157,6 @@
 
   .new-product {
     width: 500px;
-    #error-explanation {
-      padding: 0;
-      width: 500px !important;
-      border: 1px solid orange;
-      background-color: $information-background;
-      h2 {
-        margin: 0;
-        background-color: orange;
-        height: 3vh;
-      }
-    }
     .input-field,
     .field_with_errors {
       display: block;

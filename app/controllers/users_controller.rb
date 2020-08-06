@@ -10,10 +10,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      Cart.create(user: @user)
       reset_session
       log_in @user
       flash[:succes] = 'Welcome to my restaurant!'
+      Cart.create(user: @user)
       redirect_to @user
     else
       flash[:danger] = 'Something went wrong!'

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'products#index'
+  root 'sessions#create'
 
   #PRODUCTS
   resources :products, only: %i[index new create]
@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   #USERS
   get '/signup', to: 'users#new'
   resources :users, only: %i[index show create]
+  #CARTS
+  resources :carts, only: %i[show]
+  post '/carts', to:'carts#add'
 end

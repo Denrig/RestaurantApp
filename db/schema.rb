@@ -53,12 +53,12 @@ ActiveRecord::Schema.define(version: 2020_08_06_104424) do
 
   create_table "products_carts", force: :cascade do |t|
     t.bigint "cart_id"
-    t.bigint "paroduct_id"
+    t.bigint "product_id"
     t.integer "quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["cart_id"], name: "index_products_carts_on_cart_id"
-    t.index ["paroduct_id"], name: "index_products_carts_on_paroduct_id"
+    t.index ["product_id"], name: "index_products_carts_on_product_id"
   end
 
   create_table "users", force: :cascade do |t|
