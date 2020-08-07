@@ -1,4 +1,4 @@
-$('body').on('load',funcion(){initialize()})
+$('body').on('load',initialize())
 
 /**
  * Function that calls all the individual initialize
