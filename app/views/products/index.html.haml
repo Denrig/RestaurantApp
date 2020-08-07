@@ -12,10 +12,11 @@
         = select_tag 'vegetarian',options_for_select([]),class: ['selector'],prompt: 'Vegetarian'
     = link_to 'Add Product', new_product_path ,class: ["manager-button","flex-centered"]
   .products-list
+    = render 'shared/flash_messages'
     - @products.each do |product|  
       .product-block.flex-centered
         = image_tag url_for(product.image), alt: product.title, class: 'product-image'
         .product-name.flex-centered= product.title
         .product-category.flex-centered= product.category
         .product-price.flex-centered= product.price.to_s + " $"
-        = button_to 'Add to cart','/carts',method: 'post',data: {product: product}
+        = button_to 'Add to cart','/carts',method: 'post',params:{product: product.id}

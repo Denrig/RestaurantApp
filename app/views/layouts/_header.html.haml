@@ -4,11 +4,11 @@
     = image_tag 'logo.png', alt: 'Logo', class: 'logo-img'
     .main-brand Eurekka Caffe
     %ul#button-bar
-      %li= link_to 'Home',root_url,class: ['inside-pointer']
-      %li= link_to 'About','',class: ['inside-pointer']
+      %li= link_to 'Home',products_url,class: ['inside-pointer']
+      %li= link_to 'About','#about',class: ['inside-pointer']
       %li= link_to 'Services','',class: ['inside-pointer']
       %li= link_to 'Blog','',class: ['inside-pointer']
-      %li= link_to 'Contacts','',class: ['inside-pointer']
+      %li= link_to 'Contacts','#about',class: ['inside-pointer']
 
 
       - if logged_in?
