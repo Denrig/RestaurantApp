@@ -1,3 +1,4 @@
+require 'rails_helper'
 RSpec.describe Product, type: :model do
   before do
     @product = Product.new(title: 'Test', category: 'Test', price: 123)
@@ -8,23 +9,23 @@ RSpec.describe Product, type: :model do
     expect(@product.valid?).to be true
   end
 
-  it 'invalid title' do
+  it 'Invalid title' do
     @product.title = '1'
     expect(@product.valid?).to be false
     expect(@product.errors.count).to be 2
   end
 
-  it 'invalid price' do
+  it 'Invalid price' do
     @product.price = 'asv'
     expect(@product.valid?).to be false
   end
 
-  it 'invalid category' do
+  it 'Invalid category' do
     @product.category = 'a' * 21
     expect(@product.valid?).to be false
   end
 
-  it 'no image' do
+  it 'No image' do
     @product.image = nil
     expect(@product.valid?).to be false
   end
