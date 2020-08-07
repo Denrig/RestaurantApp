@@ -1,10 +1,5 @@
 .alert {
   font-size: 20px;
   font-weight: bold;
-  transition: opacity 3s linear;
-}
-.fade-out-alert{
-  position: fixed;
-  top: 50px;
-  opacity: 0;
+  margin: 0;
 }

@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(seession_params[:password])
       reset_session
       log_in user
+      flash[:success] = "Welcone #{user.name}!"
       redirect_to user
     else
       flash.now[:danger] = 'Invalid email/password combination'

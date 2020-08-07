@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     if @user.save
       reset_session
       log_in @user
-      flash[:sucess]= "Welcome to my page"
       Cart.create(user: @user)
       redirect_to @user
     else

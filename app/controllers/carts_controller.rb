@@ -12,12 +12,13 @@ class CartsController < ApplicationController
     if product_cart.nil?
       product_cart = ProductsCart.new(product: product, cart: cart, quantity: 1)
       if product_cart.save
-        flash.now[:sucess] = 'Added to cart'
+        flash.now[:success] = 'Added to cart'
       else
         flash.now[:danger] = 'Something went wrong while adding to cart'
       end
     else
       product_cart.update(quantity: product_cart.quantity + 1)
+      flash.now[:success] = 'Added to cart'
     end
     redirect_to products_url
   end
