@@ -1,13 +1,17 @@
 class CartsController < ApplicationController
   def show
-    @products_carts=Cart.find_by(id: params[:id]).products_carts
+    @products_carts = Cart.find_by(id: params[:id]).products_carts
   end
+
   def add
-    product_cart=ProductsCart.new(product: Product.find_by(id:params[:product]), cart: current_user.cart, quantity: 1)
-    if product_cart.save
+    product = Product.find_by(id: params[:product])
+    cart = current_user.cart
+    product_cart = ProductsCart.find_by(product: product, cart: cart)
+    if product_cart.nil?
+      product_cart = ProductsCart.new(product: product, cart: cart, quantity: 1)
+      flash[:danger] = 'Something went wrong while adding to cart' unless product_cart.save
     else
-      flash[:danger]="Something went wrong while adding to cart"
+      product_cart.update(quantity: product_cart.quantity + 1)
     end
-    redirect_to products_url
   end
 end

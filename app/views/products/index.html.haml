@@ -1,4 +1,5 @@
 #product-display
+  = render 'shared/flash_messages'
   #sorting-bar
     .filter-div
       %span PRICE RANGE:
@@ -12,7 +13,6 @@
         = select_tag 'vegetarian',options_for_select([]),class: ['selector'],prompt: 'Vegetarian'
     = link_to 'Add Product', new_product_path ,class: ["manager-button","flex-centered"]
   .products-list
-    = render 'shared/flash_messages'
     - @products.each do |product|  
       .product-block.flex-centered
         = image_tag url_for(product.image), alt: product.title, class: 'product-image'
