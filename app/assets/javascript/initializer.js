@@ -1,5 +1,3 @@
-$('body').on('load',initialize())
-
 /**
  * Function that calls all the individual initialize
  */
