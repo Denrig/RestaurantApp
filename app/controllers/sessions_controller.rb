@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorize ,only: %i[new create]
+  skip_before_action :authorize, only: %i[new create]
   def new; end
 
   def create
-    user = User.find_by(email: seession_params[:email]) 
+    user = User.find_by(email: seession_params[:email])
     if user&.authenticate(seession_params[:password])
       reset_session
       log_in user
@@ -23,6 +23,5 @@ class SessionsController < ApplicationController
 
   def seession_params
     params.require(:session).permit(:email, :password)
-    # debugger
   end
 end

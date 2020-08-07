@@ -1,5 +1,4 @@
 %header#header
-
   #tool-bar
     = image_tag 'logo.png', alt: 'Logo', class: 'logo-img'
     .main-brand Eurekka Caffe
@@ -9,7 +8,6 @@
       %li= link_to 'Services','',class: ['inside-pointer']
       %li= link_to 'Blog','',class: ['inside-pointer']
       %li= link_to 'Contacts','#about',class: ['inside-pointer']
-
 
       - if logged_in?
         %li.dropdown
@@ -24,7 +22,6 @@
             %li= link_to "Log Out", logout_path , method: :delete
       -else
         = link_to 'Log In', login_path , class: ['btn btn-primary']
-  .informational-text
   .informational-text
     %span.big-text ORDERING FOOD
     %br/

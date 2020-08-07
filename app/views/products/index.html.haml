@@ -19,4 +19,4 @@
         .product-name.flex-centered= product.title
         .product-category.flex-centered= product.category
         .product-price.flex-centered= product.price.to_s + " $"
-        = button_to 'Add to cart','/carts',method: 'post',params:{product: product.id}
+        = button_to 'Add to cart','/carts',method: 'post',class: 'cart-button',params:{product: product.id}

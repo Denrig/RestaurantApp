@@ -31,16 +31,14 @@
         inset 0px -11px 8px -10px $shadow-color;
 
       font-family: $products-font;
-   
 
       .title {
         color: gray;
 
         font-size: 18px;
         font-weight: bolder;
-    
       }
-      .quantiy{
+      .quantiy {
         font-size: 16px;
         font-weight: bold;
       }
@@ -49,7 +47,7 @@
         font-size: 18px;
         color: $products-font-color;
       }
-      &:first-of-type{
+      &:first-of-type {
         background-color: lightgrey;
       }
     }

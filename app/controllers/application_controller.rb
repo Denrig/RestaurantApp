@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
   before_action :authorize
 
   private
-    def authorize
-      redirect_to login_url unless logged_in?
-    end
+
+  def authorize
+    redirect_to login_url unless logged_in?
+  end
 end
