@@ -1,0 +1,23 @@
+.cart-display
+  .informations
+    %p This is your personal cart!
+    #total.flex-centered
+      Total: #{@total_price} $
+  %table.products-list
+    %tr.product-item
+      %td.title
+        Name
+      %td.quantity
+        Quantity
+      %td.price
+        Price
+    - @products_carts.each do |product_cart|
+      - product =  product_cart.product
+      - product_price= product.price * product_cart.quantity
+      %tr.product-item
+        %td.title
+          = product.title
+        %td.quantity
+          = product_cart.quantity
+        %td.price
+          = product_price.to_s + " $"

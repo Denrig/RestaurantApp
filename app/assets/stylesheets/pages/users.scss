@@ -1,0 +1,22 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+/* sidebar */
+.gravatar {
+  border-radius: 100%;
+}
+
+.sign-up-section {
+  width: auto;
+  flex-direction: column;
+  .sign-up-form {
+    flex-direction: column;
+
+    input {
+      width: 350px;
+      text-align: center;
+      margin: 15px 0 15px 0;
+    }
+  }
+}

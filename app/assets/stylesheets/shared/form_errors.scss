@@ -1,0 +1,23 @@
+#error-explanation {
+  border: 1px solid orange;
+  background-color: $information-background;
+  margin-bottom: 50px;
+
+  font-size: 20px;
+  font-weight: bolder;
+  h2 {
+    margin: 0;
+    background-color: orange;
+    border: 1px solid black;
+  }
+}
+
+.field_with_errors {
+  background-color: transparent;
+  input {
+    background-color: $light-red;
+    font-size: 18px;
+    font-weight: bold;
+    color: black !important;
+  }
+}

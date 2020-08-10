@@ -1,0 +1,112 @@
+#header {
+  height: 50%;
+  width: 100%;
+  background-color: black;
+  text-align: center;
+
+  background-image: asset-url("restaurant.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  #tool-bar {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+
+    //ROUNDED CORNERS
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+
+    width: 100%;
+    height: 50px;
+
+    //ANIMATION
+    transition: background-color 0.3s linear, color 0.3s linear;
+
+    .logo-img {
+      max-width: 50px;
+      max-height: 50px;
+      margin-left: 50px;
+    }
+
+    #button-bar {
+      list-style-type: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-end;
+      height: 100%;
+      width: 100%;
+      margin-top: 0px;
+      padding-right: 50px;
+
+      font-family: $font-family;
+      font-weight: bold;
+      font-size: 18px;
+      .inside-pointer {
+        text-decoration: none;
+        color: $toolbar-text-color;
+        &::before {
+          content: "•" !important;
+          color: orange;
+          margin-right: 25px;
+          margin-left: 25px;
+        }
+        &:last-of-type {
+          border-bottom-right-radius: $border-radius;
+        }
+        &:hover {
+          color: gray;
+          background-color: inherit;
+          cursor: pointer !important;
+        }
+      }
+    }
+  }
+
+  .fixed {
+    position: fixed !important;
+    background-color: white !important;
+    box-shadow: inset 0 0 3px #000000 !important;
+    .inside-pointer,
+    .main-brand {
+      color: black !important;
+    }
+  }
+
+  .main-brand {
+    margin-left: 20px;
+
+    color: white;
+    font-weight: bolder;
+    font-size: 20px;
+  }
+}
+
+.informational-text {
+  text-align: center;
+  white-space: wrap;
+
+  position: relative;
+  top: 50%;
+
+  font-family: cursive;
+  font-size: 16px;
+  color: white;
+
+  .big-text {
+    font-size: 30px;
+    font-weight: bolder;
+    margin: 50px;
+  }
+
+  span {
+    margin: 15px;
+  }
+
+  img {
+    height: 30px;
+    width: 30px;
+  }
+}

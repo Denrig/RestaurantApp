@@ -1,0 +1,20 @@
+%footer#about
+  %h1 About
+  %span= ApplicationHelper::DESCRIPTION
+  #info
+    .contact
+      %h2 Contact
+      - ApplicationHelper::CONTACTS.each do |key,value|
+        %span.label
+          = key.capitalize
+          \:
+        %span.content= value
+        %br/
+    .program
+      %h3 Schedule
+      - ApplicationHelper::SCHEDULE.each do |key,value|
+        %span.label
+          = key.capitalize
+          \:
+        %span.content= value
+        %br/

@@ -1,11 +1,5 @@
-= form_for( @product,:html=>{:class =>"new-product" }) do |form|
-  //Handle errors in case they appear
-  - if @product.errors.any?
-    #error-explanation
-      %h2 #{pluralize(@product.errors.count, "error")} found while trying to save the product
-      %ul
-        - @product.errors.full_messages.each do |message|
-          %li= message
+= render 'shared/form_errors',entity: @product
+= form_for( @product,:html => {:class =>"new-product" }) do |form|
   .input-field
     = form.label :title
     = form.text_field :title
@@ -17,7 +11,6 @@
     = form.number_field :price
   .input-field
     = form.label :image
-    = form.file_field :image
+    = form.file_field :image, direct_upload: true
   .actions
     = form.submit
-

@@ -5,16 +5,17 @@
       #slider
       = javascript_include_tag 'nouislider'
       .selector-container
-        = select_tag 'category',options_for_select(@products.map{|product| product.category}),class: ['selector'],prompt: 'Category'
+        = select_tag 'category', options_for_select(@products.map{|product| product.category}), class: ['selector'], prompt: 'Category'
       .selector-container
-        = select_tag 'sorting',options_for_select([]),class: ['selector'],prompt: 'Sort'
+        = select_tag 'sorting', options_for_select([]), class: ['selector'], prompt: 'Sort'
       .selector-container
-        = select_tag 'vegetarian',options_for_select([]),class: ['selector'],prompt: 'Vegetarian'
-    = link_to 'Add Product', new_product_path ,class: ["manager-button","flex-centered"]
+        = select_tag 'vegetarian', options_for_select([]), class: ['selector'], prompt: 'Vegetarian'
+    = link_to 'Add Product', new_product_path, class: ["manager-button","flex-centered"]
   .products-list
-    - @products.each do |product|
+    - @products.each do |product|  
       .product-block.flex-centered
-        = image_tag product.image, alt: product.title, class: 'product-image'
+        = image_tag url_for(product.image), alt: product.title, class: 'product-image'
         .product-name.flex-centered= product.title
         .product-category.flex-centered= product.category
         .product-price.flex-centered= product.price.to_s + " $"
+        = button_to 'Add to cart', '/carts', method: 'post', class: 'cart-button', params: { product: product.id }

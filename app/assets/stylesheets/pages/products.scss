@@ -1,29 +1,10 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-//SORTING BAR
-$sorting-background-color: #a0999a88;
-
-$sorting-font: Verdana;
-$sorting-font-color: rgb(0, 0, 0);
-//PRODUCTS DISPLAY
-
-$name-background-color: hsla(0, 0%, 35%, 0.137);
-$category-background-color: #96969613;
-$price-background-color: #d3c29757;
-$information-background: #f0f0f0;
-
-$products-font: "Comic Sans MS";
-$products-font-color: orange;
-
-$animation-time: 0.2s;
-
 //GENERAL CLASSES
 .flex-centered {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100%;
 }
 .selector-container {
   height: 100%;
@@ -123,8 +104,8 @@ $animation-time: 0.2s;
         box-shadow $animation-time linear;
 
       .product-image {
-        width: 70%;
-        height: 70%;
+        width: 250px;
+        height: 250px;
         border-radius: 100%;
         margin-bottom: 10px;
       }
@@ -156,6 +137,20 @@ $animation-time: 0.2s;
         font-size: 24px;
         color: $products-font-color;
       }
+      form {
+        width: 100%;
+        height: 40px;
+        *{
+        width: inherit;
+        height: inherit;
+        background-color: $light-orange;
+        border: none;
+        &:hover{
+          box-shadow: inset 0 0 5px 1px black;
+        }
+      }
+
+      }
       &:hover {
         width: 415px;
         height: 415px;
@@ -176,17 +171,6 @@ $animation-time: 0.2s;
 
   .new-product {
     width: 500px;
-    #error-explanation {
-      padding: 0;
-      width: 500px !important;
-      border: 1px solid orange;
-      background-color: $information-background;
-      h2 {
-        margin: 0;
-        background-color: orange;
-        height: 3vh;
-      }
-    }
     .input-field,
     .field_with_errors {
       display: block;

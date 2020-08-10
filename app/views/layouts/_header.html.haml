@@ -1,0 +1,30 @@
+%header#header
+  #tool-bar
+    = image_tag 'logo.png', alt: 'Logo', class: 'logo-img'
+    .main-brand Eurekka Caffe
+    %ul#button-bar
+      %li= link_to 'Home', products_url, class: ['inside-pointer']
+      %li= link_to 'About', '#about', class: ['inside-pointer']
+      %li= link_to 'Services', '', class: ['inside-pointer']
+      %li= link_to 'Blog', '', class: ['inside-pointer']
+      %li= link_to 'Contacts', '#about', class: ['inside-pointer']
+
+      - if logged_in?
+        %li.dropdown
+          %a.dropdown-toggle{"data-toggle" => "dropdown",:class => 'inside-pointer'}
+            = @current_user.name 
+            %b.caret
+          %ul.dropdown-menu
+            %li= link_to "My Cart", current_user.cart
+            %li= link_to "Profile", current_user
+            %li= link_to "Settings", '#'
+            %li.divider
+            %li= link_to "Log Out", logout_path , method: :delete
+      -else
+        = link_to 'Log In', login_path, class: ['btn btn-primary']
+  .informational-text
+    %span.big-text ORDERING FOOD
+    %br/
+    %span ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#{image_tag "dish.png"}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    %br/
+    %span= ApplicationHelper::MAIN_TEXT

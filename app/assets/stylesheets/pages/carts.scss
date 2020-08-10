@@ -1,0 +1,59 @@
+// Place all the styles related to the Carts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.cart-display {
+  display: flex;
+  height: 50vh;
+
+  .informations {
+    min-width: 30%;
+    background-color: $light-orange;
+
+    padding: 75px;
+
+    font-family: $products-font;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 20px;
+    #total {
+      font-size: 28px;
+      font-weight: bolder;
+    }
+  }
+  .products-list {
+    background-color: $information-background;
+    overflow-y: scroll;
+    min-width: 70%;
+
+    .product-item {
+      justify-content: space-between;
+
+      height: 50px;
+      padding: 0 25px 0 25px;
+
+      box-shadow: inset 0px 11px 8px -10px $shadow-color,
+        inset 0px -11px 8px -10px $shadow-color;
+
+      font-family: $products-font;
+
+      .title {
+        color: gray;
+
+        font-size: 18px;
+        font-weight: bolder;
+      }
+      .quantiy {
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .price {
+        font-weight: bold;
+        font-size: 18px;
+        color: $products-font-color;
+      }
+      &:first-of-type {
+        background-color: lightgrey;
+      }
+    }
+  }
+}
