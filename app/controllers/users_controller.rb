@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :correct_user, only: %i[edit update]
   skip_before_action :authorize, only: %i[new create]
 
   def new
@@ -18,7 +19,21 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash[:danger] = 'Something went wrong!'
-      render 'new'
+      render :new
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = 'Profile updated!'
+      redirect_to @user
+    else
+      render :edit
     end
   end
 
@@ -26,5 +41,10 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to root_url unless @user == current_user
   end
 end

@@ -1,0 +1,11 @@
+= render 'shared/form_errors',entity: @user
+
+.sign-up-section.flex-centered
+  .col-md-6.com-md-offset-3
+    = form_with model:@user,local: true,class: ['sign-up-form','flex-centered'] do |f|
+      = f.text_field :name, class: 'form-control',placeholder: 'Name'
+      = f.email_field :email, class: 'form-control',placeholder: 'Email'
+      = f.password_field :password, class: 'form-control',placeholder: 'Password'
+      = f.password_field :password_confirmation, class: 'form-control',placeholder: 'Confirm Password'
+
+      = f.submit local_assigns[:message], class: "btn btn-primary"

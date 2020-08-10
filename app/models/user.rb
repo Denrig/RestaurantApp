@@ -4,10 +4,10 @@ class User < ApplicationRecord
   attr_accessor :remember_token
 
   # Validations
-  validates :password, presence: true, length: { minimum: 6 }
   VALID_NAME_REGEX = /\A[a-zA-Z ]+\z/.freeze
   validates :name, presence: true, length: { minimum: 8, maximum: 50 }, format: { with: VALID_NAME_REGEX }
   validates :email, presence: true, length: { maximum: 255 }, format: { with: URI::MailTo::EMAIL_REGEXP  }, uniqueness: true
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   class << self
     # Returns the hash digest of the given string
     def digest(string)
@@ -39,6 +39,7 @@ class User < ApplicationRecord
   # Check if we know the user already
   def authenticated?(remember_token)
     return false if remember_digest.nil?
+
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 end

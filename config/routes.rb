@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # USERS
   get '/signup', to: 'users#new'
-  resources :users, only: %i[index show create]
+  resources :users, only: %i[index show create edit update]
 
   # CARTS
   resources :carts, only: %i[show]
