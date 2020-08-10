@@ -31,8 +31,14 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
+  # Deletes token from database
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
+
   # Check if we know the user already
   def authenticated?(remember_token)
+    return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 end
