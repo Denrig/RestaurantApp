@@ -2,16 +2,19 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'sessions#new'
 
-  #PRODUCTS
+  # PRODUCTS
   resources :products, only: %i[index new create]
-  #SESSIONS
+
+  # SESSIONS
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
-  #USERS
+
+  # USERS
   get '/signup', to: 'users#new'
   resources :users, only: %i[index show create]
-  #CARTS
+
+  # CARTS
   resources :carts, only: %i[show]
-  post '/carts', to:'carts#add'
+  post '/carts', to: 'carts#add'
 end
