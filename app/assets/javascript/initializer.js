@@ -1,9 +1,14 @@
+
 /**
  * Function that calls all the individual initialize
  */
 function initialize() {
   initializeScroll();
-  initilizeSlider("slider");
+  initilizeSlider('slider');
+  $( document ).on('turbolinks:load', function() {
+    initilizeSlider("slider");
+  })
+  
 }
 
 /**
