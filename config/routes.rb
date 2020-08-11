@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   # CARTS
   resources :carts, only: %i[show]
   post '/carts', to: 'carts#add'
+
+  resources :accounts, only: %i[edit]
 end

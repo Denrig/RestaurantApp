@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :correct_user, only: %i[edit update]
   before_action :admin?, only: %i[index destroy]
+
   skip_before_action :authorize, only: %i[new create]
 
   def index
