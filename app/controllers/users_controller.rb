@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_action :correct_user, only: %i[edit update]
   skip_before_action :authorize, only: %i[new create]
 
+  def index
+    @users=User.paginate(page: params[:page])
+  end
+
   def new
     @user = User.new
   end

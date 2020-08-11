@@ -27,10 +27,13 @@ gem 'bootstrap-sass', '~>3.4.1'
 gem 'bcrypt', '~>3.1.13'
 # Image storage
 gem 'cloudinary'
+# Pagination
+gem 'bootstrap-will_paginate', '~>1'
+gem 'will_paginate', '~>3.3'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'faker', '~>2.11'
   gem 'rspec-rails', '~> 4.0', '>= 4.0.1'
 end
 

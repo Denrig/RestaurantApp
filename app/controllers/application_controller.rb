@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authorize
+    store_location
     redirect_to login_url unless logged_in?
   end
 end

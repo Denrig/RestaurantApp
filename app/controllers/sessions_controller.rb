@@ -5,11 +5,12 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: seession_params[:email])
     if user&.authenticate(seession_params[:password])
+      foraward_url = session[:forward_url]
       reset_session
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       flash[:success] = "Welcome #{user.name}!"
-      redirect_to user
+      redirect_to foraward_url || user
     else
       flash.now[:danger] = 'Invalid email/password combination'
       render 'new'

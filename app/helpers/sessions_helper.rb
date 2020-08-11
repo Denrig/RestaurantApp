@@ -1,4 +1,9 @@
 module SessionsHelper
+  # Stores the forward url if the request has get method
+  def store_location
+    session[:forward_url] = request.original_url if request.get?
+  end
+
   def log_in(user)
     session[:user_id] = user.id
   end

@@ -42,7 +42,7 @@ RSpec.describe UsersController, type: :request do
     end
 
     it 'Failed edit' do
-      @user_hash[:name]=''
+      @user_hash[:name] = ''
       patch "/users/#{@user.id}", params: { user: @user_hash }
       expect(@user.name).to eq('TestNameToday')
       expect(response).to have_http_status(:success)
@@ -59,7 +59,7 @@ RSpec.describe UsersController, type: :request do
     end
 
     it 'Edit other user beside yourself' do
-      @user_hash[:email]="alin@alin.alin"
+      @user_hash[:email] = 'alin@alin.alin'
       post users_url params: {
         user: @user_hash
       }
