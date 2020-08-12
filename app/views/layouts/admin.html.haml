@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title Admin
+    = csrf_meta_tag
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'admin_base',media: 'all', 'data-turbolinks-track': "reload"
+    = javascript_pack_tag "application", 'data-turbolinks-track': "reload"
+
+  %body
+    %ul.menu
+      %li.menu-item= link_to 'Users', admin_users_url,class: 'flex-centered'
+      %li.menu-item= link_to 'Statistics', '',class: 'flex-centered menu-item'
+      %li.dropdown.menu-item
+        %a.dropdown-toggle{"data-toggle" => "dropdown",:class => 'flex-centered'}
+          = @current_user.name 
+          %b.caret
+        %ul.dropdown-menu
+          %li
+            %span.glyphicon.glyphicon-arrow-left
+            = link_to "Go back", root_url
+          %li.divider
+          %li
+            %span.glyphicon.glyphicon-log-out
+            = link_to "Log Out", logout_path , method: :delete     
+    =yield

@@ -1,16 +1,4 @@
 .cart-display
-  = form_with(url: '.',class:'informations') do |f|
-    = f.label "Your totals is #{@total_price} $",id: 'total'
-    .flex-centered
-      = f.label "Delivery address"
-      = f.text_area class: 'form-control',placeholder: ''
-    = f.number_field :price,class: 'form-control',placeholder: 'Phone Number'
-    = f.label 'How would you like to pay?'
-    #paying-method
-      = f.collection_radio_buttons :options,[[:cash,'Cash'],[:credit,'Credit']],:first,:last
-
-    = f.submit 'Place Order',class: 'btn btn-primary'
-
   %table.products-list
     %tr.product-item
       %td.image
@@ -33,3 +21,6 @@
           = product_cart.quantity
         %td.price
           = product_price.to_s + " $"
+  .order-secion
+    %span.flex-centered Your total is #{@total_price} $
+    = button_tag 'Place Order',class: 'btn btn-primary'

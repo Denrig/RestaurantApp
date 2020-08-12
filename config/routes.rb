@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'password_resets/new'
   get 'password_resets/edit'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root 'sessions#new'
+  root 'products#index'
 
   # PRODUCTS
   resources :products, only: %i[index new create]
@@ -22,4 +22,10 @@ Rails.application.routes.draw do
 
   resources :account_activations, only: %i[edit]
   resources :password_resets, only: %i[new create edit update]
+
+  namespace :admin do
+    root 'users#index'
+
+    resources :users
+  end
 end
