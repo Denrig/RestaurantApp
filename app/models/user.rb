@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   has_one :cart
   has_secure_password
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
 
   before_create :create_activation_token
 
@@ -54,13 +54,28 @@ class User < ApplicationRecord
     self.activation_digest = User.digest(activation_token)
   end
 
+  def create_reset_token
+    self.reset_token = User.new_token
+    update_columns(reset_digest: User.digest(reset_token), reset_send_at: Time.zone.now)
+  end
+
   # Activates an account.
   def activate
     update_columns(activated: true, activated_at: Time.zone.now)
   end
 
+  # Check if the password reset token has expired
+  def password_reset_expired?
+    reset_send_at < 2.hours.ago
+  end
+
   # Sends activation email.
   def send_activation_email
-    AccountMailer.account_activation(self).deliver_now
+    AccountMailer.activation(self).deliver_now
+  end
+
+  # Sends reset password mail
+  def send_reset_email
+    AccountMailer.reset_password(self).deliver_now
   end
 end
