@@ -130,14 +130,16 @@
         font-size: 24px;
         color: $products-font-color;
       }
-      form {
-        width: 100%;
+      .button_to {
+        width: 100% !important;
         height: 40px;
+        padding: 0;
         *{
         width: inherit;
         height: inherit;
         background-color: $light-orange;
         border: none;
+        margin: 0;
         &:hover{
           box-shadow: inset 0 0 5px 1px black;
         }
@@ -161,36 +163,7 @@
     font-style: oblique;
     font-size: 32px;
   }
-
-  .new-product {
-    width: 500px;
-    .input-field,
-    .field_with_errors {
-      display: block;
-      label {
-        font-family: $products-font;
-        font-weight: bold;
-        font-size: 24px;
-        margin: 10px;
-      }
-      input[type="text"],
-      input[type="number"] {
-        height: 30px;
-        width: 250px;
-        border-radius: 50px !important;
-        text-align: center;
-      }
-    }
-    .field_with_errors {
-      background-color: transparent;
-      input {
-        border: 1px solid orange;
-      }
-    }
-    input[type="submit"] {
-      margin: 25px;
-      height: 30px;
-      width: 150px;
-    }
+  #new_product{
+    width: 400px;
   }
 }

@@ -15,8 +15,11 @@
 form {
   background-color: $information-background;
   box-shadow: inset 0px 0px 5px 1px grey;
-  input{
-    margin:10px;
+
+  padding: 10px;
+
+  input {
+    margin: 5px 0 5px 0;
   }
 }
 
@@ -41,5 +44,34 @@ form {
     font-size: 18px;
     font-weight: bold;
     color: black !important;
+  }
+}
+
+.input-with-icon {
+  display: flex;
+  align-items: center;
+  
+
+  padding: 0;
+  margin: 5px 0 5px 0;
+  width: 100%;
+
+  border-radius: 15px !important;
+  box-shadow: inset 0 0 3px 1px gray;
+
+  font-family: $products-font;
+  font-weight: bold;
+  * {
+    margin: 0;
+  }
+  input{
+    border-radius: 15px !important;
+    text-align: center;
+    font-size: 16px;
+    
+  }
+  .glyphicon {
+    width: 25px;
+    padding: 0;
   }
 }
