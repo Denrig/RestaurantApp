@@ -4,3 +4,13 @@
   border-color: orange !important;
 }
 
+.dropdown-menu{
+  li{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+  }
+  .divider{
+    padding: 0;
+  }
+}
