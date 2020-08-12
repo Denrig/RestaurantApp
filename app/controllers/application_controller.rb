@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authorize
+    flash[:info]='You need to login first.'
     store_location
     redirect_to login_url unless logged_in?
   end

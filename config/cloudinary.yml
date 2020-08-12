@@ -1,14 +1,8 @@
 ---
-development:
-  cloud_name: restaurantapp
-  api_key: '714446869925478'
-  api_secret: Z_3e5mQFZp4RQ4x9DuOUrw10eBw
-  enhance_image_tag: true
-  static_file_support: false
 production:
   cloud_name: restaurantapp
-  api_key: '714446869925478'
-  api_secret: Z_3e5mQFZp4RQ4x9DuOUrw10eBw
+  api_key: ENV['KEY']
+  api_secret: ENV['SECRET']
   enhance_image_tag: true
   static_file_support: true
 test:

@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  VALID_NAME_REGEX = /\A[a-zA-Z ]+\z/.freeze
+
   has_one :cart
   has_secure_password
   attr_accessor :remember_token, :activation_token
@@ -6,7 +8,6 @@ class User < ApplicationRecord
   before_create :create_activation_token
 
   # Validations
-  VALID_NAME_REGEX = /\A[a-zA-Z ]+\z/.freeze
   validates :name, presence: true, length: { minimum: 8, maximum: 50 }, format: { with: VALID_NAME_REGEX }
   validates :email, presence: true, length: { maximum: 255 }, format: { with: URI::MailTo::EMAIL_REGEXP  }, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true

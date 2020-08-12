@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   def show
-    @products_carts = Cart.find_by(id: params[:id]).products_carts
+    @products_carts = current_user.cart.products_carts
     @total_price = @products_carts.map { |element| element.product.price * element.quantity }.sum
   end
 
