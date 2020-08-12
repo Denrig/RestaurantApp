@@ -11,6 +11,7 @@
       .selector-container
         = select_tag 'vegetarian', options_for_select([]), class: ['selector'], prompt: 'Vegetarian'
     = link_to 'Add Product', new_product_path, class: ["manager-button","flex-centered"]
+  = will_paginate  
   .products-list
     - @products.each do |product|  
       .product-block.flex-centered
@@ -19,3 +20,4 @@
         .product-category.flex-centered= product.category
         .product-price.flex-centered= product.price.to_s + " $"
         = button_to 'Add to cart', '/carts', method: 'post', class: 'cart-button', params: { product: product.id }
+  = will_paginate  

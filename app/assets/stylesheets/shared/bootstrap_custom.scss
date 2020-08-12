@@ -4,13 +4,15 @@
   border-color: orange !important;
 }
 
-.dropdown-menu{
-  li{
+.dropdown-menu {
+  li {
     display: flex;
     align-items: center;
     padding: 5px;
   }
-  .divider{
+  .divider {
     padding: 0;
   }
 }
+
+

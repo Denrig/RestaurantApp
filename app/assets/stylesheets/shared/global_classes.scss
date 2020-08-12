@@ -50,7 +50,6 @@ form {
 .input-with-icon {
   display: flex;
   align-items: center;
-  
 
   padding: 0;
   margin: 5px 0 5px 0;
@@ -64,14 +63,29 @@ form {
   * {
     margin: 0;
   }
-  input{
+  input {
     border-radius: 15px !important;
     text-align: center;
     font-size: 16px;
-    
   }
   .glyphicon {
     width: 25px;
     padding: 0;
+  }
+}
+
+ul.pagination {
+  li a {
+    border: none !important;
+    background-color: transparent !important;
+    color: $light-orange;
+  }
+  .active a {
+    color: orange;
+    font-weight: bolder;
+    font-size: 16px;
+    &:hover{
+      color: black;
+    }
   }
 }
