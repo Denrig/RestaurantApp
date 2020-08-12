@@ -7,6 +7,6 @@ class Admin::UsersController < AdminBaseController
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = 'User deleted'
-    redirect_to users_url
+    redirect_to admin_users_url
   end
 end
