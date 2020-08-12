@@ -4,9 +4,6 @@ class UsersController < ApplicationController
 
   skip_before_action :authorize, only: %i[new create]
 
-  def index
-    @users = User.where(activated:true).paginate(page: params[:page])
-  end
 
   def new
     @user = User.new
@@ -42,11 +39,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = 'User deleted'
-    redirect_to users_url
-  end
+
 
   private
 

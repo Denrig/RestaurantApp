@@ -1,0 +1,26 @@
+.users {
+  list-style-type: none;
+  padding: 20px;
+  .user {
+    padding: 10px;
+
+    justify-content: start;
+    height: 80px;
+    margin: 10px;
+    background-color: $information-background;
+    box-shadow: inset 0 0 3px 1px $light-gray;
+    a {
+      margin: 10px;
+    }
+    .glyphicon {
+      font-size: 22px;
+      margin: 0 20px 0 20px;
+      &:hover {
+        color: $light-blue;
+      }
+    }
+    span:last-of-type{
+      margin-left: auto;
+    }
+  }
+}
