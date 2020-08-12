@@ -5,7 +5,8 @@ User.create(
   password_confirmation: 'password',
   admin: true,
   activated: true,
-  activated_at: Time.now
+  activated_at: Time.now,
+  cart: Cart.new
 )
 
 User.create(
@@ -13,6 +14,7 @@ User.create(
   email: 'non-valid@mail.com',
   password: 'password',
   password_confirmation: 'password',
+  cart: Cart.new
 )
 
 25.times do |n|
@@ -22,6 +24,7 @@ User.create(
     password: 'password',
     password_confirmation: 'password',
     activated: true,
-    activated_at: Time.now
+    activated_at: Time.now,
+    cart: Cart.new
   )
 end
