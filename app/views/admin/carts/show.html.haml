@@ -1,7 +1,8 @@
-.products
-  .insert-section.flex-centered
-    = render 'form'
-
+.cart
+  .user
+    %h1
+      = gravatar_for @cart.user,size: 80
+      = @cart.user.name+'`s Cart'
   %ul.products-list-vertical
     %li.top.product-item.flex-centered
       Image
@@ -9,9 +10,6 @@
       .category Category
       .price Price
       Action
-    - @products.each do |product|
+    - @cart.products.each do |product|
       %li.product-item.flex-centered
         = render product
-
-        
-      

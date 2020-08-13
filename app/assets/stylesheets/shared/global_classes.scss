@@ -84,13 +84,39 @@ ul.pagination {
     color: orange;
     font-weight: bolder;
     font-size: 16px;
-    &:hover{
+    &:hover {
       color: black;
     }
   }
 }
 
-
-.gravatar,.product-image{
+.gravatar,
+.product-image {
   border-radius: 100% !important;
+}
+
+.products-list-vertical {
+  list-style-type: none;
+  padding: 0;
+
+  font-family: $content-font;
+  font-weight: 600;
+  font-size: 16px;
+  .top {
+    background-color: $light-gray;
+    height: 10vh;
+    justify-content: space-evenly;
+    color: $heavy-gray;
+  }
+
+  .product-item {
+    height: 10vh;
+    box-shadow: inset 0 0 3px 1px $light-gray;
+    padding: 15px;
+    justify-content: space-between;
+    .product-image {
+      width: 70px;
+      height: 70px;
+    }
+  }
 }

@@ -36,7 +36,8 @@ class ProductsCartsController < ApplicationController
     when 'add'
       product_cart.quantity += 1
     end
-    product_cart.save
+
+    product_cart.quantity.zero? ? product_cart.destroy : product_cart.save
     redirect_to product_cart.cart
   end
 end

@@ -2,11 +2,10 @@
   = gravatar_for user,size:50
   = link_to user.name,user
 
-  = link_to '', user.cart,class:'glyphicon glyphicon-shopping-cart'
+  = link_to '', admin_cart_url(user.cart),class:'glyphicon glyphicon-shopping-cart'
   = link_to '', admin_user_url(user),method: 'delete',class:'glyphicon glyphicon-trash',data: {confirm: 'Are you sure?'}
   
   %span.flex-centered
-
     - if user.active? 
       = link_to '',products_url,class:'glyphicon glyphicon-log-out'
     = user.active? ? 'Active': 'Idle'

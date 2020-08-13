@@ -1,4 +1,5 @@
 class Admin::ProductsController < AdminBaseController
+
   def index
     @products = Product.all
     @form_product ||= Product.new
@@ -11,6 +12,11 @@ class Admin::ProductsController < AdminBaseController
     else
       render :new
     end
+  end
+
+  def show
+    @product=Product.find_by(id: params[:id])
+    redirect_to admin_products_url
   end
 
   private
