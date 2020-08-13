@@ -1,5 +1,4 @@
-class AccountManagement::PasswordResetsController < ApplicationController
-  skip_before_action :authorize
+class AccountManagement::PasswordResetsController < AccountBaseController
   before_action :get_user, :valid_user, :check_expiration, only: %i[edit update]
 
   def new; end
@@ -7,10 +6,10 @@ class AccountManagement::PasswordResetsController < ApplicationController
   def edit; end
 
   def create
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(email: params[:password_reset][:email])
     if @user
-      @user.create_reset_digest
-      @user.send_password_reset_email
+      @user.create_reset_token
+      @user.send_reset_email
       flash[:info] = 'Email send with password reset instructions'
       redirect_to root_url
     else
@@ -42,9 +41,9 @@ class AccountManagement::PasswordResetsController < ApplicationController
   end
 
   def valid_user
-    unelss(@user && @user.activated? && @user.authenticated?(:reset, params[:token])) do
+    unless @user&.activated? && @user&.authenticated?(:reset, params[:id])
       flash[:danger] = 'Your reset password link is invalid'
-      redirect_to root
+      redirect_to root_url
     end
   end
 

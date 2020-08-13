@@ -46,6 +46,7 @@ class User < ApplicationRecord
 
     BCrypt::Password.new(digest).is_password?(token)
   end
+
   # Activates an account.
   def activate
     update_columns(activated: true, activated_at: Time.zone.now)
@@ -65,6 +66,12 @@ class User < ApplicationRecord
   def send_reset_email
     AccountMailer.reset_password(self).deliver_now
   end
+
+  def create_reset_token
+    self.reset_token = User.new_token
+    update_columns(reset_digest: User.digest(reset_token), reset_send_at: Time.zone.now)
+  end
+
   private
 
   def create_activation_token
@@ -72,9 +79,5 @@ class User < ApplicationRecord
     self.activation_digest = User.digest(activation_token)
   end
 
-  def create_reset_token
-    self.reset_token = User.new_token
-    update_columns(reset_digest: User.digest(reset_token), reset_send_at: Time.zone.now)
-  end
 
 end
