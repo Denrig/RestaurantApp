@@ -1,11 +1,11 @@
 class User < ApplicationRecord
+  before_create :create_activation_token
+
   VALID_NAME_REGEX = /\A[a-zA-Z ]+\z/.freeze
+  attr_accessor :remember_token, :activation_token, :reset_token
 
   has_one :cart
   has_secure_password
-  attr_accessor :remember_token, :activation_token, :reset_token
-
-  before_create :create_activation_token
 
   # Validations
   validates :name, presence: true, length: { minimum: 8, maximum: 50 }, format: { with: VALID_NAME_REGEX }
@@ -46,19 +46,6 @@ class User < ApplicationRecord
 
     BCrypt::Password.new(digest).is_password?(token)
   end
-
-  private
-
-  def create_activation_token
-    self.activation_token = User.new_token
-    self.activation_digest = User.digest(activation_token)
-  end
-
-  def create_reset_token
-    self.reset_token = User.new_token
-    update_columns(reset_digest: User.digest(reset_token), reset_send_at: Time.zone.now)
-  end
-
   # Activates an account.
   def activate
     update_columns(activated: true, activated_at: Time.zone.now)
@@ -78,4 +65,16 @@ class User < ApplicationRecord
   def send_reset_email
     AccountMailer.reset_password(self).deliver_now
   end
+  private
+
+  def create_activation_token
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
+  end
+
+  def create_reset_token
+    self.reset_token = User.new_token
+    update_columns(reset_digest: User.digest(reset_token), reset_send_at: Time.zone.now)
+  end
+
 end

@@ -9,14 +9,6 @@ User.create(
   cart: Cart.new
 )
 
-User.create(
-  name: Faker::Name.name,
-  email: "example-bad@mail.com",
-  password: 'password',
-  password_confirmation: 'password',
-  cart: Cart.new
-)
-
 10.times do |n|
   User.create(
     name: Faker::Name.name,

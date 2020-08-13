@@ -1,15 +1,13 @@
-# Preview all emails at http://localhost:3000/rails/mailers/account_mailer
 class AccountMailerPreview < ActionMailer::Preview
-
-  # Preview this email at http://localhost:3000/rails/mailers/account_mailer/activation
   def activation
-    user=User.first
+    user = User.first
+    user.activation_token = User.new_token
     AccountMailer.activation(user)
   end
 
   def reset_password
-    user=User.first
+    user = User.first
+    user.activation_token = User.new_token
     AccountMailer.reset_password(user)
   end
-
 end
