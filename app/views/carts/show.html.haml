@@ -9,6 +9,8 @@
         Quantity
       %td.price
         Price
+      %td.action
+        Action
     - @products_carts.each do |product_cart|
       - product =  product_cart.product
       - product_price= product.price * product_cart.quantity
@@ -18,9 +20,14 @@
         %td.title
           = product.title
         %td.quantity
+          = link_to '',change_quantity_url(id: product_cart.id,:operation => 'sub'),method: 'post',class:'glyphicon glyphicon-minus'  
           = product_cart.quantity
+          = link_to '',change_quantity_url(id: product_cart.id,:operation => 'add'),method: 'post',class:'glyphicon glyphicon-plus'
         %td.price
           = product_price.to_s + " $"
-  .order-secion
-    %span.flex-centered Your total is #{@total_price} $
-    = button_tag 'Place Order',class: 'btn btn-primary'
+        %td.action
+          = link_to '',products_cart_url(product_cart),method: 'delete',class:'glyphicon glyphicon-trash'
+  - unless @products_carts.count.zero?
+    .order-secion
+      %span.flex-centered Your total is #{@total_price} $
+      = button_tag 'Place Order',class: 'btn btn-primary'

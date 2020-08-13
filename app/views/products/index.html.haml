@@ -10,7 +10,6 @@
         = select_tag 'sorting', options_for_select([]), class: ['selector'], prompt: 'Sort'
       .selector-container
         = select_tag 'vegetarian', options_for_select([]), class: ['selector'], prompt: 'Vegetarian'
-    = link_to 'Add Product', new_product_path, class: ["manager-button","flex-centered"]
   = will_paginate  
   .products-list
     - @products.each do |product|  
@@ -19,5 +18,5 @@
         .product-name.flex-centered= product.title
         .product-category.flex-centered= product.category
         .product-price.flex-centered= product.price.to_s + " $"
-        = button_to 'Add to cart', '/carts', method: 'post', class: 'cart-button', params: { product: product.id }
+        = button_to 'Add to cart', products_carts_url, method: 'post', class: 'cart-button', params: { product: product.id }
   = will_paginate  

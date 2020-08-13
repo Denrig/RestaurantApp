@@ -1,5 +1,5 @@
-= render 'shared/form_errors',entity: @product
-= form_for Product.new do |form|
+= render 'shared/form_errors',entity: @form_product
+= form_for @form_product do |form|
   .input-with-icon
     %span.glyphicon.glyphicon-font
     = form.text_field :title,class: 'form-control',placeholder: 'Title'

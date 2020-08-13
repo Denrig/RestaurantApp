@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  get 'password_resets/new'
-  get 'password_resets/edit'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'products#index'
 
   # PRODUCTS
@@ -17,17 +14,19 @@ Rails.application.routes.draw do
   resources :users
 
   # CARTS
+  post 'change_quantity', to: 'products_carts#change_quantity'
   resources :carts, only: %i[show]
-  post '/carts', to: 'carts#add'
-
-  resources :account_activations, only: %i[edit]
-  resources :password_resets, only: %i[new create edit update]
+  resources :products_carts, only: %i[create destroy]
 
   namespace :admin do
     root 'users#index'
 
-    resources :users
+    resources :users, only: %i[index destroy]
+    resources :products, only: %i[index create destroy]
+  end
 
-    resources :products
+  namespace :account_management do
+    resources :account_activations, only: %i[edit]
+    resources :password_resets, only: %i[new create edit update]
   end
 end

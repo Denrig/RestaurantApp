@@ -9,29 +9,27 @@ User.create(
   cart: Cart.new
 )
 
+User.create(
+  name: Faker::Name.name,
+  email: "example-bad@mail.com",
+  password: 'password',
+  password_confirmation: 'password',
+  cart: Cart.new
+)
+
 10.times do |n|
-  if n.even?
-    User.create(
-      name: Faker::Name.name,
-      email: "example-#{n}@mail.com",
-      password: 'password',
-      password_confirmation: 'password',
-      activated: true,
-      activated_at: Time.now,
-      cart: Cart.new
-    )
-  else
-    User.create(
-      name: Faker::Name.name,
-      email: "example-#{n + 5}@mail.com",
-      password: 'password',
-      password_confirmation: 'password',
-      cart: Cart.new
-    )
-  end
+  User.create(
+    name: Faker::Name.name,
+    email: "example-#{n}@mail.com",
+    password: 'password',
+    password_confirmation: 'password',
+    activated: true,
+    activated_at: Time.now,
+    cart: Cart.new
+  )
 end
 
-30.times do
+10.times do
   product = Product.new(
     title: 'Test',
     price: 12,

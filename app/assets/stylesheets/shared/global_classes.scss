@@ -13,7 +13,7 @@
 }
 
 form {
-  background-color: $information-background;
+  background-color: $very-light-gray;
   box-shadow: inset 0px 0px 5px 1px grey;
 
   padding: 10px;
@@ -25,7 +25,7 @@ form {
 
 #error-explanation {
   border: 1px solid orange;
-  background-color: $information-background;
+  background-color: $very-light-gray;
   margin-bottom: 50px;
 
   font-size: 20px;

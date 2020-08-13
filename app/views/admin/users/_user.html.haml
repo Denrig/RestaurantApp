@@ -6,6 +6,7 @@
   = link_to '', admin_user_url(user),method: 'delete',class:'glyphicon glyphicon-trash',data: {confirm: 'Are you sure?'}
   
   %span.flex-centered
+
     - if user.active? 
       = link_to '',products_url,class:'glyphicon glyphicon-log-out'
     = user.active? ? 'Active': 'Idle'

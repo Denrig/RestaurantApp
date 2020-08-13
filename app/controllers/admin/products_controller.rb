@@ -1,10 +1,7 @@
 class Admin::ProductsController < AdminBaseController
   def index
     @products = Product.all
-  end
-
-  def new
-    @product ||= Product.new
+    @form_product ||= Product.new
   end
 
   def create

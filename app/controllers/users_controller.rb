@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   before_action :correct_user, only: %i[edit update]
-  before_action :admin?, only: %i[index destroy]
-
   skip_before_action :authorize, only: %i[new create]
-
 
   def new
     @user = User.new
@@ -18,7 +15,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_mail
-      flash[:info]="Please check your email to activate your account"
+      flash[:info] = 'Please check your email to activate your account'
       redirect_to login_url
     else
       render :new
@@ -38,8 +35,6 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
-
 
   private
 
