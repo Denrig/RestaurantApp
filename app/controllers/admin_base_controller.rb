@@ -2,8 +2,7 @@ class AdminBaseController < ApplicationController
   layout 'admin'
   before_action :admin?
 
-  def index
-  end
+  def index; end
 
   def admin?
     unless current_user.admin

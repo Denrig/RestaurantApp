@@ -9,8 +9,7 @@
       %li= link_to 'Blog', '', class: ['inside-pointer']
       %li= link_to 'Contacts', '#about', class: ['inside-pointer']
 
-      - if logged_in?
-        
+      - if logged_in?   
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown",:class => 'inside-pointer'}
             = @current_user.name 

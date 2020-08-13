@@ -1,16 +1,11 @@
 .cart-display
   %table.products-list
     %tr.product-item
-      %td.image
-        Image
-      %td.title
-        Name
-      %td.quantity
-        Quantity
-      %td.price
-        Price
-      %td.action
-        Action
+      %td.image Image
+      %td.title Name
+      %td.quantity Quantity
+      %td.price Price
+      %td.action Action
     - @products_carts.each do |product_cart|
       - product =  product_cart.product
       - product_price= product.price * product_cart.quantity

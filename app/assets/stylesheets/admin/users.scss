@@ -1,8 +1,8 @@
-h1{
+h1 {
   margin: 0;
   padding: 10px 25px 10px 25px;
   background-color: $very-light-blue;
-  
+
   font-weight: 900;
   font-style: italic;
   color: whitesmoke;
@@ -31,7 +31,7 @@ h1{
         color: $light-blue;
       }
     }
-    span:last-of-type{
+    span:last-of-type {
       margin-left: auto;
       width: 150px;
     }
