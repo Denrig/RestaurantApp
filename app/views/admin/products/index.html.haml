@@ -1,0 +1,24 @@
+.products
+  .insert-section.flex-centered
+    = render 'form'
+
+  %ul.products-list-vertical
+    %li.top.product-item.flex-centered
+      Image
+      .title Title
+      .category Category
+      .price Price
+      Action
+    - @products.each do |product|
+      %li.product-item.flex-centered
+        = image_tag url_for(product.image), alt: product.title, class: 'product-image'
+        .title
+          = product.title
+        .category
+          = product.category
+        .price
+          = product.price.to_s + " $"
+        = link_to '', admin_products_url(product),method: 'delete',class:'glyphicon glyphicon-trash',data: {confirm: 'Are you sure?'}
+
+        
+      

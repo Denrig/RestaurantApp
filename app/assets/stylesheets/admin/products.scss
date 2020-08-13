@@ -1,0 +1,46 @@
+.products {
+  display: flex;
+  height: 95vh;
+
+  .insert-section {
+    width: 40vw;
+    border-right: 1px solid $light-gray;
+    align-items: flex-start;
+    padding: 30px 0 0 0 ;
+      form{
+        border-radius: 5px;
+      }
+      .btn-primary{
+        background-color: $light-blue;
+        border-color: $light-gray;
+      }
+  }
+  .products-list-vertical {
+    width: 60vw;
+    height: inherit;
+    overflow-y: scroll;
+    list-style-type: none;
+    padding: 0;
+    
+    font-family: $content-font;
+    font-weight: 600;
+    font-size: 16px;
+    .top{
+      background-color: $light-gray;
+      height: 10vh;
+      justify-content: space-evenly;
+      color: $heavy-gray;
+    }
+    .product-item{
+      height: 10vh;
+      box-shadow: inset 0 0 3px 1px $light-gray;
+      padding: 15px;
+      justify-content: space-between;
+      .product-image{
+        width: 70px;
+        height: 70px;
+        background-color: red;
+      }
+    }
+  }
+}

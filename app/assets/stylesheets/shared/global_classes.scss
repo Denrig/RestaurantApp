@@ -51,7 +51,7 @@ form {
   display: flex;
   align-items: center;
 
-  padding: 0;
+  padding: 0 5px 0 5px;
   margin: 5px 0 5px 0;
   width: 100%;
 
@@ -69,7 +69,7 @@ form {
     font-size: 16px;
   }
   .glyphicon {
-    width: 25px;
+    margin: 1px;
     padding: 0;
   }
 }
@@ -91,6 +91,6 @@ ul.pagination {
 }
 
 
-.gravatar {
-  border-radius: 100%;
+.gravatar,.product-image{
+  border-radius: 100% !important;
 }
