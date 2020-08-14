@@ -4,7 +4,7 @@ class AdminBaseController < ApplicationController
 
   def admin?
     unless current_user.admin
-      flash[:danger] = 'Only privilaged users can acces that page!'
+      flash[:danger] = 'Only privileged users can acces that page!'
       redirect_to root_url
     end
   end
