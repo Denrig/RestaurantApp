@@ -1,20 +1,48 @@
 class Admin::ProductsController < AdminBaseController
   def index
     @products = Product.all
-    @form_product ||= Product.new
+  end
+
+  def show
+    @product = Product.find_by(id: params[:id])
+    redirect_to admin_products_url
+  end
+
+  def new
+    @product = Product.new
   end
 
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to products_url
+      flash[:success] = 'Product added!'
+      redirect_to admin_products_url
     else
       render :new
     end
   end
 
-  def show
-    @product = Product.find_by(id: params[:id])
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    product = Product.find(params[:id])
+    if product.update(product_params)
+      flash[:success] = 'Product updated!'
+      redirect_to admin_products_url
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    product = Product.find(params[:id])
+    if product.destroy
+      flash[:success] = 'Product deleted!'
+    else
+      flash[:danger] = 'Errors appeard while trying to delete product'
+    end
     redirect_to admin_products_url
   end
 

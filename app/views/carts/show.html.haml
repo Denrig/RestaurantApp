@@ -10,16 +10,11 @@
       - product =  product_cart.product
       - product_price= product.price * product_cart.quantity
       %tr.product-item
-        %td.image
-          = image_tag url_for(product.image), alt: product.title, class: 'product-image'
-        %td.title
-          = product.title
+        = render 'shared/product_horizontal_item',product: product,product_price: product_price
         %td.quantity
           = link_to '',change_quantity_url(id: product_cart.id,:operation => 'sub'),method: 'post',class:'glyphicon glyphicon-minus'  
           = product_cart.quantity
           = link_to '',change_quantity_url(id: product_cart.id,:operation => 'add'),method: 'post',class:'glyphicon glyphicon-plus'
-        %td.price
-          = product_price.to_s + " $"
         %td.action
           = link_to '',products_cart_url(product_cart),method: 'delete',class:'glyphicon glyphicon-trash'
   - unless @products_carts.count.zero?

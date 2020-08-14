@@ -20,10 +20,10 @@ class AccountManagement::PasswordResetsController < AccountBaseController
 
   def update
     if @user.update(user_params)
-      log_out @user
+      @user.forget
       reset_session
       log_in @user
-      flash[:success] = 'Password has reset'
+      flash[:success] = 'Password has been reset'
       redirect_to @user
     else
       render :edit

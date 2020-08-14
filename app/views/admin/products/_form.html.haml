@@ -1,5 +1,5 @@
-= render 'shared/form_errors',entity: @form_product
-= form_for @form_product do |form|
+= render 'shared/form_errors',entity: @product
+= form_for [:admin,@product] , local:true do |form|
   .input-with-icon
     %span.glyphicon.glyphicon-font
     = form.text_field :title,class: 'form-control',placeholder: 'Title'
@@ -13,4 +13,4 @@
     %span.glyphicon.glyphicon-picture
     = form.file_field :image, direct_upload: true,class: 'form-control',placeholder: 'Image'
   .actions
-    = form.submit 'Add product',class: 'btn btn-primary'
+    = form.submit "#{params[:action].capitalize} product",class: 'btn btn-primary'

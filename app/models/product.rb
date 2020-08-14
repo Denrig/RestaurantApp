@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
   has_one_attached :image
-  has_many :products_carts
+  has_many :products_carts, dependent: :destroy
   has_many :carts, through: :products_carts
 
   validates :title, :price, :category, :image, presence: true

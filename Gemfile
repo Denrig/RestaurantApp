@@ -21,6 +21,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'haml-rails', '~> 2.0'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootstrap-toggle-rails'
 # Bootstrap for styling
 gem 'bootstrap-sass', '~>3.4.1'
 # Crypting algorithm for the passwords

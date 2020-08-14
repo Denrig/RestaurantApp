@@ -23,5 +23,6 @@
           %li.divider
           %li
             %span.glyphicon.glyphicon-log-out
-            = link_to "Log Out", logout_path , method: :delete     
-    =yield
+            = link_to "Log Out", logout_path , method: :delete
+    = render 'shared/flash_messages'
+    = yield

@@ -1,0 +1,4 @@
+%td.image
+  = image_tag url_for(local_assigns[:product].image), alt: local_assigns[:product].title, class: 'product-image button-to button-to'
+%td.title= local_assigns[:product].title
+%td.price= local_assigns[:product_price].to_s + " $"

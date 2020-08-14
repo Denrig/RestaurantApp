@@ -4,7 +4,7 @@ class User < ApplicationRecord
   VALID_NAME_REGEX = /\A[a-zA-Z ]+\z/.freeze
   attr_accessor :remember_token, :activation_token, :reset_token
 
-  has_one :cart
+  has_one :cart, dependent: :destroy
   has_secure_password
 
   # Validations
@@ -49,7 +49,7 @@ class User < ApplicationRecord
 
   # Activates an account.
   def activate
-    update_columns(activated: true, activated_at: Time.zone.now)
+    update(activated: true, activated_at: Time.zone.now, cart: Cart.new)
   end
 
   # Check if the password reset token has expired
@@ -78,6 +78,4 @@ class User < ApplicationRecord
     self.activation_token = User.new_token
     self.activation_digest = User.digest(activation_token)
   end
-
-
 end

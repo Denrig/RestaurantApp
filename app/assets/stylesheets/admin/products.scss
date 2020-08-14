@@ -1,23 +1,29 @@
-.products {
-  display: flex;
-  height: 95vh;
-
-  .insert-section {
-    width: 40vw;
-    border-right: 1px solid $light-gray;
-    align-items: flex-start;
-    padding: 30px 0 0 0;
-    form {
-      border-radius: 5px;
-    }
-    .btn-primary {
-      background-color: $light-blue;
-      border-color: $light-gray;
+.products-list {
+  width: 100%;
+  height: inherit;
+  overflow-y: scroll;
+  .price,
+  .action {
+    color: $light-blue !important;
+  }
+  .action {
+    width: 150px;
+    text-align: center;
+    .glyphicon {
+      margin: 0 15px 0 15px;
     }
   }
-  .products-list-vertical {
-    width: 60vw;
-    height: inherit;
-    overflow-y: scroll;
+}
+
+.insert-section {
+  border-right: 1px solid $light-gray;
+  align-items: flex-start;
+  padding: 30px 0 0 0;
+  form {
+    border-radius: 5px;
+  }
+  .btn-primary {
+    background-color: $light-blue;
+    border-color: $light-gray;
   }
 }

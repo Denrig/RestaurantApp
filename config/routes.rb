@@ -22,8 +22,8 @@ Rails.application.routes.draw do
     root 'users#index'
 
     resources :users, only: %i[index destroy]
-    resources :products, only: %i[index create destroy show]
-    resources :carts,only: %i[show]
+    resources :products
+    resources :carts, only: %i[show]
   end
 
   namespace :account_management do

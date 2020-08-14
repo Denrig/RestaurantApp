@@ -1,16 +1,17 @@
-.products
-  .insert-section.flex-centered
-    = render 'form'
-  %ul.products-list-vertical
-    %li.top.product-item.flex-centered
-      Image
-      .title Title
-      .category Category
-      .price Price
-      Action
-    - @products.each do |product|
-      %li.product-item.flex-centered
-        = render product
+%table.products-list
+  %tr.product-item
+    %td.image Image
+    %td.title Name
+    %td.price Price
+    %td.action Action
+  - @products.each do |product|
+    %tr.product-item
+      = render 'shared/product_horizontal_item',product: product,product_price: product.price
+      %td.action
+        = link_to '',admin_product_url(product),method: 'delete',class:'glyphicon glyphicon-trash'
+        = link_to '',edit_admin_product_url(product),class:'glyphicon glyphicon-pencil'
+        = link_to '',new_admin_product_url,class:'glyphicon glyphicon-plus'
+
 
         
       
