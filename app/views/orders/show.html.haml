@@ -1,4 +1,6 @@
-%h1.order-prompt Order number ##{@order.id}
+%h1.order-prompt 
+  Order number ##{@order.id}
+  .accepted= @order.accepted? ? 'Accepted' : 'Waiting'
 %table.products-list
   %tr.product-item
     %td.image Image

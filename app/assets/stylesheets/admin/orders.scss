@@ -1,0 +1,30 @@
+.order-prompt{
+  background-color: transparent;
+}
+.actions {
+  width: 100%;
+  .action {
+    width: 50vw;
+    height: 5vh;
+    box-shadow: inset 0 0 3px 1px $light-gray;
+
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+
+    &:hover,&:visited{
+      text-decoration: inherit;
+      color: inherit;
+    }
+    &:hover{
+      box-shadow: inset 0 0 3px 1px $heavy-gray;
+      font-style: italic;
+    }
+  }
+  .accept {
+    background-color: $light-green;
+  }
+  .reject {
+    background-color: $light-red;
+  }
+}
