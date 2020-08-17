@@ -1,9 +1,14 @@
+
 /**
  * Function that calls all the individual initialize
  */
 function initialize() {
   initializeScroll();
-  initilizeSlider("slider");
+  initilizeSlider('slider');
+  $(window).on('load', function() {
+    initilizeSlider("slider");
+  })
+  
 }
 
 /**
@@ -22,6 +27,7 @@ function initializeScroll() {
  */
 function initilizeSlider(sliderName) {
   var slider = $("#" + sliderName)[0];
+
   if (slider)
     noUiSlider.create(slider, {
       start: [1, 100],

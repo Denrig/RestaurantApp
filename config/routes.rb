@@ -1,6 +1,33 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'products#index'
 
-  resources :products , only: %i[index new create]
+  # PRODUCTS
+  resources :products, only: %i[index new create]
+
+  # SESSIONS
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
+
+  # USERS
+  get '/signup', to: 'users#new'
+  resources :users
+
+  # CARTS
+  post 'change_quantity', to: 'products_carts#change_quantity'
+  resources :carts, only: %i[show]
+  resources :products_carts, only: %i[create destroy]
+
+  namespace :admin do
+    root 'users#index'
+
+    resources :users, only: %i[index destroy]
+    resources :products
+    resources :carts, only: %i[show]
+  end
+
+  namespace :account_management do
+    resources :account_activations, only: %i[edit]
+    resources :password_resets, only: %i[new create edit update]
+  end
 end

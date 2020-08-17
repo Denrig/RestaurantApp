@@ -1,0 +1,52 @@
+// Place all the styles related to the Sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.login-section {
+  width: 100%;
+  .login-form {
+    flex-direction: column;
+    height: 100%;
+    width: 400px;
+    padding: 10px;
+    margin: 30px;
+    font-family: $products-font;
+    font-weight: bold;
+    color: gray;
+    h1 {
+      color: black;
+    }
+    .checkbox {
+      width: auto !important;
+      margin: 10px;
+    }
+    p {
+      display: flex;
+      align-items: center;
+      padding: 0 5px 0 5px;
+    }
+    .account-section {
+      margin: 10px;
+      display: flex;
+      justify-content: space-between;
+      p {
+        border-left: 1px solid darkgrey;
+        &:first-of-type {
+          border: none;
+        }
+      }
+      a {
+        margin-left: 5px;
+        text-decoration: none;
+        color: darkgray;
+        &:hover {
+          color: orange;
+        }
+      }
+    }
+
+    .btn {
+      width: 250px;
+    }
+  }
+}

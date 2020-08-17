@@ -1,0 +1,31 @@
+// Place all the styles related to the Carts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.cart-display {
+  width: 100%;
+  height: 50vh;
+
+  .order-secion {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: flex-end;
+
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+
+    background-color: lightgrey;
+    box-shadow: inset 0 0 3px 1px black;
+    .btn {
+      height: 100%;
+      width: 200px;
+    }
+    span {
+      font-family: $products-font;
+      font-weight: bolder;
+      font-size: 20px;
+      width: 150px;
+    }
+  }
+}
