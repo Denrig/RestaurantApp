@@ -1,7 +1,13 @@
 = render 'shared/form_errors',entity: @order
-= form_for @order,local: true,params:{cart: params[:cart]} do |f|
-  = f.select :city, options_for_select(Order.cities.keys), class: ['selector'], prompt: 'City'
-  = f.text_field :address
-  = f.telephone_field :phone
-  = f.submit 'Place Order'
+= form_for @order,:html => {:class => 'flex-centered'},local: true do |f|
+  .input-with-icon
+    %span.glyphicon.glyphicon-envelope
+    = f.select :city, options_for_select(Order.cities.keys),{:include_blank => "City"},{:class =>'form-control'}
+  .input-with-icon
+    %span.glyphicon.glyphicon-envelope
+    = f.text_field :address,class: 'form-control',placeholder: 'Address'
+  .input-with-icon
+    %span.glyphicon.glyphicon-envelope
+    = f.telephone_field :phone,class: 'form-control',placeholder: 'Phone Number'
+  = f.submit 'Place Order',class:'btn btn-primary'
    

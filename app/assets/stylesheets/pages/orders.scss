@@ -5,3 +5,13 @@
 .accepted{
   color:green;
 }
+
+#new_order{
+  flex-direction: column;
+  .input-with-icon{
+    width: 350px !important;
+    select{
+      border-radius: $border-radius;
+    }
+  }
+}

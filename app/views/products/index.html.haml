@@ -11,7 +11,7 @@
       .selector-container
         = select_tag 'vegetarian', options_for_select([]), class: ['selector'], prompt: 'Vegetarian'
   = will_paginate  
-  .products-list
+  .products-list.flex-centered
     - @products.each do |product|  
       .product-block.flex-centered
         = image_tag url_for(product.image), alt: product.title, class: 'product-image'
