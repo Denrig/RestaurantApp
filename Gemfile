@@ -31,6 +31,8 @@ gem 'cloudinary'
 # Pagination
 gem 'bootstrap-will_paginate', '~>1'
 gem 'will_paginate', '~>3.3'
+# Used to create qr codes 
+gem 'rqrcode'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

@@ -1,0 +1,28 @@
+%a.accordion-toggle.order-prompt{'data-toggle'=> 'collapse',:href => "#hidden-content#{@order.id.to_s}", 'role' => "button",'aria-expanded' => "false",'aria-controls'=>"hidden-content#{@order.id.to_s}"}
+  %span Order number ##{@order.id}
+  %span= @order.created_at.strftime("Placed at on %d/%m/%Y at %I:%M %p")
+%div.collapse{:id => "hidden-content#{@order.id}"}
+  %table.products-list
+    %tr.product-item
+      %td.image Image
+      %td.title Name
+      %td.price Price
+      %td.quantity Quantity
+    - @order.products.each do |product_id,quantity|
+      - product =  Product.find(product_id)
+      - product_price= product.price * quantity
+      %tr.product-item
+        = render 'shared/product_horizontal_item',product: product,product_price: product_price
+        %td.quantity
+          = quantity
+  .delivery-information.flex-centered
+    %span 
+      Name: #{@order.user.name}
+      %br/
+      Email: #{@order.user.email}
+    %span 
+      Address: #{@order.address}
+      %br/
+      Phone: #{@order.phone}
+    .qr-image
+      = create_qr_image(order_url(@order))

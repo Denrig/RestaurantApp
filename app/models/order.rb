@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
+  has_one_attached :qr_image
   serialize :products, Hash
 
   validates :products, :address, :phone, :city, presence: true
