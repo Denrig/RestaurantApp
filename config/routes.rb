@@ -17,7 +17,8 @@ Rails.application.routes.draw do
   post 'change_quantity', to: 'products_carts#change_quantity'
   resources :carts, only: %i[show]
   resources :products_carts, only: %i[create destroy]
-
+  # ORDERS
+  resources :orders, only: %i[new show create]
   namespace :admin do
     root 'users#index'
 

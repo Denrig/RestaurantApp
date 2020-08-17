@@ -20,4 +20,4 @@
   - unless @products_carts.count.zero?
     .order-secion
       %span.flex-centered Your total is #{@total_price} $
-      = button_tag 'Place Order', class: 'btn btn-primary'
+      = link_to 'Place Order', new_order_path, class: 'btn btn-primary'

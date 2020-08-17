@@ -1,0 +1,31 @@
+// Place all the styles related to the Orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.order-prompt{
+  display: flex;
+  justify-content: space-between;
+
+  background-color: $light-orange;
+  box-shadow: inset 0 0 3px 1px $heavy-gray;
+
+  margin: 0;
+  padding: 20px;
+  
+  font-family: $content-font;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 16px;
+
+  .delivery-information{
+    display: flex;
+    
+    width: 100%;
+    height: 5vh;
+    span{
+      border-right: 1px solid $heavy-gray;
+      
+    }
+  }
+}
