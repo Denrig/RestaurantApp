@@ -1,11 +1,16 @@
 class OrdersController < ApplicationController
   include OrdersHelper
+
   def new
     @order = Order.new
   end
 
   def show
     @order = Order.find(params[:id])
+  end
+
+  def index
+    @orders = current_user.orders
   end
 
   def create

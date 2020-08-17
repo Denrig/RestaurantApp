@@ -4,3 +4,7 @@
       %h1
         = @user.name
         = gravatar_for @user
+      %h3
+        = @user.email
+    = link_to 'Edit',edit_user_url(@user),class:'btn btn-primary'
+    = link_to 'My orders',orders_url,class:'btn btn-primary'
