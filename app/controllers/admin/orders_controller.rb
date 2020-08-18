@@ -1,6 +1,6 @@
 class Admin::OrdersController < AdminBaseController
   def index
-    @orders = Order.all
+    @orders = Order.where(status: 'waiting')
   end
 
   def destroy

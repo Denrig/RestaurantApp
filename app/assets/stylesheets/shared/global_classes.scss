@@ -172,7 +172,11 @@ ul.pagination {
     }
   }
 }
-
+.status {
+  width: 200px;
+  color: black;
+  border-radius: $border-radius;
+}
 .accepted {
   background-color: $light-green !important;
 }
