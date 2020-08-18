@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :correct_user, only: %i[edit update]
-  skip_before_action :authorize, only: %i[new create]
+  skip_before_action :authorized?, only: %i[new create]
 
   def new
     @user = User.new

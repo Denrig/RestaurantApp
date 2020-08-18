@@ -1,5 +1,5 @@
 class AccountManagement::PasswordResetsController < AccountBaseController
-  before_action :get_user, :valid_user, :check_expiration, only: %i[edit update]
+  before_action :find_user, :valid_user, :check_expiration, only: %i[edit update]
 
   def new; end
 
@@ -32,11 +32,7 @@ class AccountManagement::PasswordResetsController < AccountBaseController
 
   private
 
-  def user_params
-    params.require(:user).permit(:password, :password_confirmation)
-  end
-
-  def get_user
+  def find_user
     @user = User.find_by(email: params[:email])
   end
 
@@ -52,5 +48,9 @@ class AccountManagement::PasswordResetsController < AccountBaseController
       flash[:danger] = 'Password reset has expired.'
       redirect_to new_password_reset_url
     end
+  end
+
+  def user_params
+    params.require(:user).permit(:password, :password_confirmation)
   end
 end

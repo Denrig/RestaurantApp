@@ -5,7 +5,6 @@ class Admin::ProductsController < AdminBaseController
 
   def show
     @product = Product.find_by(id: params[:id])
-    redirect_to admin_products_url
   end
 
   def new

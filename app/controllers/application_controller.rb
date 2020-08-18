@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
-  before_action :authorize
+  before_action :authorized?
 
   private
 
-  def authorize
+  def authorized?
     store_location
     unless logged_in?
       flash[:info] = 'You need to login first.'
