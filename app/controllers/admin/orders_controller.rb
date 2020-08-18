@@ -11,8 +11,8 @@ class Admin::OrdersController < AdminBaseController
   def change_status!
     order = Order.find(params[:id])
     order.status = params[:status]
-    if order.valid?
-      flash[:success] = "Order #{params[:status]}ed!" if order.save
+    if order.valid? && params[:status]
+      flash[:success] = "Order #{params[:status]}!" if order.save
     else
       flash[:warning] = 'Status unknown!'
     end

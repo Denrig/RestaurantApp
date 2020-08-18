@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = current_user.orders
+    flash[:info]='You don`t have any order yet!' if @orders.count.zero?
   end
 
   def create

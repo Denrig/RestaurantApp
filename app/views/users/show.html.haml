@@ -15,4 +15,4 @@
         %li.flex-centered
           %span= order.created_at.strftime("Placed at on %d/%m/%Y at %I:%M %p")
           %span Total #{order.total} $
-          %span.status{class: "#{order.status}"} Status: #{order.status}
+          %span.status{class: "#{order.status}"} Status: #{order.status.capitalize}

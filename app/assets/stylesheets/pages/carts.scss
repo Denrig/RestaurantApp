@@ -20,6 +20,12 @@
     .btn {
       height: 100%;
       width: 200px;
+
+      font-size: 22px;
+      &:hover{
+        font-style: italic;
+      }
+
     }
     span {
       font-family: $products-font;

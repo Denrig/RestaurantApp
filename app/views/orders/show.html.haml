@@ -8,16 +8,3 @@
     %td.price Price
     %td.quantity Quantity
   = render @order
-.delivery-information.flex-centered
-  %span 
-    Name: #{@order.user.name}
-    %br/
-    Email: #{@order.user.email}
-  %span 
-    Address: #{@order.address}
-    %br/
-    Phone: #{@order.phone}
-  %span
-    = @order.created_at.strftime("Placed at on %d/%m/%Y at %I:%M %p")
-  .qr-image
-    = create_qr_image(order_url(@order))

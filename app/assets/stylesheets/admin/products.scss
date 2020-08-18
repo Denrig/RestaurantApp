@@ -15,14 +15,12 @@
   }
 }
 
-.insert-section {
-  border-right: 1px solid $light-gray;
-  align-items: flex-start;
-  padding: 30px 0 0 0;
-  form {
-    border-radius: 5px;
-  }
+.insert-section{
+  border-radius: 5px;
+  flex-direction: column;
+  .btn,
   .btn-primary {
+    width: 150px;
     background-color: $light-blue;
     border-color: $light-gray;
   }
