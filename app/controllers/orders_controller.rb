@@ -15,8 +15,10 @@ class OrdersController < ApplicationController
 
   def create
     @order = current_user.orders.new(order_params)
-    # Save the products as a hash { product_id: quantity }
-    @order.products = current_user.cart.products_carts.map { |product| [product.product.id, product.quantity] }.to_h
+    current_user.cart.products_carts.each do |product_cart|
+      product_order = ProductOrder.new(product: product_cart.product, price: product_cart.product.price, quantity: product_cart.quantity)
+      @order.product_orders << product_order
+    end
     if @order.save
       current_user.cart.clear!
       flash[:success] = 'Your order has been placed!'

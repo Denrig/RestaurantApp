@@ -30,7 +30,7 @@ Rails.application.routes.draw do
     resources :carts, only: %i[show]
 
     resources :orders, only: %i[index destroy]
-    put 'orders/:id', to: 'orders#accept!'
+    put 'orders/:id', to: 'orders#change_status!'
   end
 
   namespace :account_management do

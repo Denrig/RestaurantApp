@@ -1,6 +1,5 @@
-.order-prompt{
-  background-color: $light-orange;
-}
+@import '../pages/orders.scss';
+
 .actions {
   width: 100%;
   .action {
@@ -20,11 +19,5 @@
       box-shadow: inset 0 0 3px 1px $heavy-gray;
       font-style: italic;
     }
-  }
-  .accept {
-    background-color: $light-green;
-  }
-  .reject {
-    background-color: $light-red;
   }
 }

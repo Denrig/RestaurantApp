@@ -1,11 +1,8 @@
 - @orders.each do |order|
-  %a.accordion-toggle.order-prompt{'data-toggle'=> 'collapse',:href => "#hidden-content#{order.id.to_s}", 'role' => "button",'aria-expanded' => "false",'aria-controls'=>"hidden-content#{order.id.to_s}"}
+  %a.accordion-toggle.order-prompt{class: "#{order.status}",'data-toggle'=> 'collapse',:href => "#hidden-content#{order.id.to_s}", 'role' => "button",'aria-expanded' => "false",'aria-controls'=>"hidden-content#{order.id.to_s}"}
     %span Order number ##{order.id}
     %span= order.created_at.strftime("Placed at on %d/%m/%Y at %I:%M %p")
-    - if order.accepted?
-      .status.accepted Accepted
-    - else
-      .status.waiting Waiting for accept    
+    %span Status: #{order.status.capitalize}
   %div.collapse{:id => "hidden-content#{order.id}"}
     %table.products-list
       %tr.product-item
@@ -14,14 +11,4 @@
         %td.price Price
         %td.quantity Quantity
       = render order
-    .delivery-information.flex-centered
-      %span 
-        Name: #{order.user.name}
-        %br/
-        Email: #{order.user.email}
-      %span 
-        Address: #{order.address}
-        %br/
-        Phone: #{order.phone}
-      .qr-image
-        = create_qr_image(order_url(order))
+    

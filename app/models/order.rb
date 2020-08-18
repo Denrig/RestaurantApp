@@ -1,10 +1,16 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_one_attached :qr_image
-  serialize :products, Hash
+  has_many :product_orders
 
-  validates :products, :address, :phone, :city, presence: true
+  validates :address, :phone, :city, presence: true
   validates :address, length: { maximum: 50 }
 
   enum city: { 'Baia Mare': 0, 'Cluj-Napoca': 1 }
+  enum status: %i[waiting accepted rejected]
+
+  def total
+    total = 0
+    product_orders.each { |product_order| total += product_order.price * product_order.quantity }
+    total
+  end
 end
