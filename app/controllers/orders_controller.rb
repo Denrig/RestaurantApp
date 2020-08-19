@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :correct_user, only: %i[show]
   include OrdersHelper
 
   def new
@@ -11,7 +12,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = current_user.orders
-    flash[:info]='You don`t have any order yet!' if @orders.count.zero?
+    flash[:info] = 'You don`t have any order yet!' if @orders.count.zero?
   end
 
   def create
@@ -25,6 +26,7 @@ class OrdersController < ApplicationController
       flash[:success] = 'Your order has been placed!'
       redirect_to current_user
     else
+      flash[:danger]='Something went wrong while placeing the order!'
       render :new
     end
   end
@@ -33,5 +35,10 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:city, :address, :phone)
+  end
+
+  def correct_user
+    @user=Order.find(params[:id]).user
+    check_user(@user)
   end
 end

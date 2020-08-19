@@ -7,9 +7,10 @@ RSpec.describe SessionsController, type: :request do
         name: 'TestNameToday',
         email: 'test@email.com',
         password: 'admin1',
-        password_confirmation: 'admin1'
+        password_confirmation: 'admin1',
       }
     }
+    User.first.toggle!(:activated)
     delete logout_url
   end
 
@@ -21,15 +22,13 @@ RSpec.describe SessionsController, type: :request do
 
     it 'Succesful login' do
       post login_path, params: { session: { email: 'test@email.com', password: 'admin1' } }
-      expect(response).to have_http_status(:redirect)
+      expect(flash[:success].nil?).to be false    
     end
 
     it 'Login with invalid information' do
       post login_path, params: { session: { email: '', password: '' } }
       expect(response).to have_http_status(:success)
-      expect(flash.empty?).to be false
-      get root_path
-      expect(flash.empty?).to be true
+      expect(flash[:success].nil?).to be true
     end
   end
 

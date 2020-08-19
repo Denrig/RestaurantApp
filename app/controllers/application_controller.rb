@@ -2,6 +2,13 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   before_action :authorized?
 
+  def check_user(user)
+    unless user == current_user
+      flash[:danger] = 'You are not allowed to acces that page!'
+      redirect_to root_url
+    end
+  end
+
   private
 
   def authorized?
