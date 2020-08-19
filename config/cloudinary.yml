@@ -1,8 +1,8 @@
 ---
 production:
-  cloud_name: ENV['CLOUD']
-  api_key: ENV['KEY']
-  api_secret: ENV['SECRET']
+  cloud_name: <%= ENV['CLOUD'] %>
+  api_key: <%= ENV['KEY'] %>
+  api_secret: <%= ENV['SECRET'] %>
   enhance_image_tag: true
   static_file_support: true
 test:
