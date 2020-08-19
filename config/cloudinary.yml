@@ -1,6 +1,6 @@
 ---
 production:
-  cloud_name: restaurantapp
+  cloud_name: ENV['CLOUD']
   api_key: ENV['KEY']
   api_secret: ENV['SECRET']
   enhance_image_tag: true
