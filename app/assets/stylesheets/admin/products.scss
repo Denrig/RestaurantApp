@@ -1,3 +1,14 @@
+.products-header{
+  display: flex;
+  justify-content: space-between;
+  .glyphicon{
+    color: white;
+    &:hover{
+      color: $light-gray;
+    }
+  }
+}
+
 .products-list {
   width: 100%;
   height: inherit;
