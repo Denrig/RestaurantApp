@@ -1,5 +1,5 @@
 - if local_assigns[:entity] && local_assigns[:entity].errors.any?
-  #error-explanation
+  #error-explanation.flex-centered
     %h2 #{pluralize(local_assigns[:entity].errors.count, "field")} you've entered contain errors
     %ul
       - local_assigns[:entity].errors.full_messages.each do |message|

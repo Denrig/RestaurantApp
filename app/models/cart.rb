@@ -4,6 +4,6 @@ class Cart < ApplicationRecord
   has_many :products, through: :products_carts
 
   def clear!
-    products_carts.each { |value| value.destroy }
+    products_carts.destroy_all
   end
 end

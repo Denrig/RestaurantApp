@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
       flash[:success] = 'Your order has been placed!'
       redirect_to current_user
     else
-      flash[:danger]='Something went wrong while placeing the order!'
+      flash[:danger] = 'Something went wrong while placeing the order!'
       render :new
     end
   end
@@ -38,7 +38,7 @@ class OrdersController < ApplicationController
   end
 
   def correct_user
-    @user=Order.find(params[:id]).user
+    @user = Order.find(params[:id]).user
     check_user(@user)
   end
 end

@@ -27,23 +27,27 @@ form {
   border: 1px solid orange;
   background-color: $very-light-gray;
   margin-bottom: 50px;
-
+  flex-direction: column;
   font-size: 20px;
   font-weight: bolder;
   h2 {
+    width: 100%;
     margin: 0;
     background-color: orange;
     border: 1px solid black;
+    font-weight: 800;
   }
 }
 
 .field_with_errors {
   background-color: transparent;
+  width: 100%;
+  color: black !important;
+
   input {
     background-color: $light-red;
     font-size: 18px;
     font-weight: bold;
-    color: black !important;
   }
 }
 

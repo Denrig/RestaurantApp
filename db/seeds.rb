@@ -9,18 +9,6 @@ User.create_or_find_by(
   cart: Cart.new
 )
 
-5.times do |n|
-  User.create_or_find_by(
-    name: Faker::Name.name,
-    email: "example-#{n}@mail.com",
-    password: 'password',
-    password_confirmation: 'password',
-    activated: true,
-    activated_at: Time.now,
-    cart: Cart.new
-  )
-end
-
 product = Product.new(
   title: 'Pizza Carbonara',
   category: 'Pizza',

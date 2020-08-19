@@ -1,8 +1,8 @@
-#new_order{
+#new_order {
   flex-direction: column;
-  .input-with-icon{
+  .input-with-icon {
     width: 350px !important;
-    select{
+    select {
       border-radius: $border-radius;
     }
   }
@@ -55,6 +55,4 @@
   font-weight: 600;
   font-size: 20px;
   color: $heavy-gray;
-  
-  }
-
+}

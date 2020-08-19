@@ -1,6 +1,6 @@
-@import '../pages/orders.scss';
+@import "../pages/orders.scss";
 
-.order-prompt{
+.order-prompt {
   background-color: transparent;
 }
 .actions {
@@ -10,9 +10,9 @@
   justify-content: space-between;
 }
 
-.accept{
+.accept {
   color: $light-green;
 }
-.reject{
+.reject {
   color: $light-red;
 }
