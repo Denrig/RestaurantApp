@@ -1,4 +1,10 @@
 module SecurityHelper
+  EXPIRATION_TIMES = {
+    activation: 1.day.ago,
+    reset: 2.hours.ago,
+    one_time: Time.parse('01/01/2000')
+  }.freeze
+
   # Returns a random token
   def new_token
     SecureRandom.urlsafe_base64
@@ -21,9 +27,12 @@ module SecurityHelper
     object_token = object.send("#{atribute}_token")
     token_time = object.send("#{atribute}_created_at")
 
-    return false if object_token.nil? || token_time.nil? || expired?(token_time)
+    return false if object_token.nil? || token_time.nil?
 
-    if object_token == token
+    if expired?(token_time, atribute)
+      create_token!(object, atribute)
+      false
+    elsif object_token == token
       # Reset the token
       create_token!(object, atribute)
       true
@@ -38,7 +47,7 @@ module SecurityHelper
   end
 
   # Checks if a time is 'older' then one hour
-  def expired?(time)
-    time < 1.hour.ago
+  def expired?(time, atribute)
+    time < EXPIRATION_TIMES[atribute]
   end
 end
