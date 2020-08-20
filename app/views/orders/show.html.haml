@@ -1,7 +1,7 @@
 
 %h1.order-prompt 
   Order number ##{@order.id}
-  .accepted= @order.accepted? ? 'Accepted' : 'Waiting'
+  .stuatus{class: "#{@order.status}"} Status: #{@order.status}
 %table.products-list
   %tr.product-item
     %td.image Image

@@ -11,7 +11,7 @@ class OrdersController < ApplicationController
     @order = nil unless authenticated?(@order, :one_time, params[:id])
     if @order.nil?
       flash[:danger] = 'Your link is not a valid one!'
-      redirect_to root_url
+      redirect_to login_url
     end
   end
 
