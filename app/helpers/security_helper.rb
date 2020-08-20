@@ -1,6 +1,6 @@
 module SecurityHelper
   EXPIRATION_TIMES = {
-    activation: 1.day.ago,
+    activation: Time.parse('01/01/2000'),
     reset: 2.hours.ago,
     one_time: Time.parse('01/01/2000')
   }.freeze
