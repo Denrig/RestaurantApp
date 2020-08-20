@@ -1,13 +1,14 @@
 class OrdersController < ApplicationController
-  before_action :correct_user, only: %i[show]
   include OrdersHelper
+  skip_before_action :authorized?,only: %i[show]
 
   def new
     @order = Order.new
   end
 
   def show
-    @order = Order.find(params[:id])
+    @order = Order.find_by(one_time_token: params[:id])
+    @order.create_one_time_token
   end
 
   def index
