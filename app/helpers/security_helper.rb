@@ -48,6 +48,11 @@ module SecurityHelper
 
   # Checks if a time is 'older' then one hour
   def expired?(time, atribute)
-    time < EXPIRATION_TIMES[atribute]
+    case atribute
+    when :reset
+      time < 2.hours.ago
+    else
+      false
+    end
   end
 end

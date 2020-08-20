@@ -11,17 +11,6 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 }, format: { with: URI::MailTo::EMAIL_REGEXP  }, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
-  # Saves the token in the database
-  def remember
-    self.remember_token = User.new_token
-    update_attribute(:remember_digest, User.digest(remember_token))
-  end
-
-  # Deletes token from database
-  def forget
-    update_attribute(:remember_digest, nil)
-  end
-
   # Activates an account.
   def activate
     update(activated: true, activated_at: Time.zone.now, cart: Cart.new)

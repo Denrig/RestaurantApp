@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_084223) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
-    t.string "remember_digest"
+    t.string "remember_token"
     t.boolean "admin", default: false
     t.boolean "activated", default: false
     t.datetime "activated_at"
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_084223) do
     t.datetime "reset_created_at"
     t.boolean "active", default: false
     t.datetime "activation_created_at"
+    t.datetime "remember_created_at"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

@@ -11,7 +11,7 @@ module SessionsHelper
 
   # Remembers a persistent session
   def remember(user)
-    user.remember
+    create_token!(user,:remember)
     cookies.permanent.encrypted[:user_id] = user.id
     cookies.permanent.encrypted[:remember_token] = user.remember_token
   end
@@ -25,7 +25,7 @@ module SessionsHelper
 
   # Forgets a persistent session
   def forget(user)
-    user.forget
+    create_token!(user,:remember)
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
