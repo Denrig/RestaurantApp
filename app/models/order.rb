@@ -17,6 +17,7 @@ class Order < ApplicationRecord
   end
 
   def create_one_time_token
-    self.one_time_token = User.new_token
+    self.one_time_token = new_token
+    self.one_time_created_at=Time.now
   end
 end

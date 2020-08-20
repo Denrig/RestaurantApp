@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
+  include SecurityHelper
+
   before_action :authorized?
 
   def check_user(user)

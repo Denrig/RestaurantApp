@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_083000) do
+ActiveRecord::Schema.define(version: 2020_08_20_084223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_08_20_083000) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "one_time_token"
+    t.datetime "one_time_created_at"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -95,10 +96,11 @@ ActiveRecord::Schema.define(version: 2020_08_20_083000) do
     t.boolean "admin", default: false
     t.boolean "activated", default: false
     t.datetime "activated_at"
-    t.string "activation_digest"
-    t.string "reset_digest"
-    t.datetime "reset_send_at"
+    t.string "activation_token"
+    t.string "reset_token"
+    t.datetime "reset_created_at"
     t.boolean "active", default: false
+    t.datetime "activation_created_at"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

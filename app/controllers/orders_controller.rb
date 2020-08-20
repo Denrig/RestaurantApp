@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   include OrdersHelper
-  skip_before_action :authorized?,only: %i[show]
+  skip_before_action :authorized?, only: %i[show]
 
   def new
     @order = Order.new
@@ -8,7 +8,11 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find_by(one_time_token: params[:id])
-    @order.create_one_time_token
+    @order = nil unless authenticated?(@order, :one_time, params[:id])
+    if @order.nil?
+      flash[:danger] = 'Your link is not a valid one!'
+      redirect_to root_url
+    end
   end
 
   def index

@@ -1,5 +1,5 @@
 class AccountManagement::PasswordResetsController < AccountBaseController
-  before_action :find_user, :valid_user, :check_expiration, only: %i[edit update]
+  before_action :find_user, :valid_user, only: %i[edit update]
 
   def new; end
 
@@ -37,16 +37,9 @@ class AccountManagement::PasswordResetsController < AccountBaseController
   end
 
   def valid_user
-    unless @user&.activated? && @user&.authenticated?(:reset, params[:id])
+    unless @user&.activated? && authenticated?(@user, :reset, params[:id])
       flash[:danger] = 'Your reset password link is invalid'
       redirect_to root_url
-    end
-  end
-
-  def check_expiration
-    if @user.password_reset_expired?
-      flash[:danger] = 'Password reset has expired.'
-      redirect_to new_password_reset_url
     end
   end
 

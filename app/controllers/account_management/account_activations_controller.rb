@@ -1,7 +1,8 @@
 class AccountManagement::AccountActivationsController < AccountBaseController
+
   def edit
-    user = User.find_by(email: params[:email])
-    if user && !user.activated? && user.authenticated?(:activation, params[:id])
+    user = User.find_by(activation_token: params[:id])
+    if user && !user.activated? && authenticated?(user, :activation, params[:id])
       user.activate
       log_in user
       flash[:success] = 'Account activated!'
