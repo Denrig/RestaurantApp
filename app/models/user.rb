@@ -33,7 +33,7 @@ class User < ApplicationRecord
   private
 
   def create_activation_token
-    self.activation_token=new_token
-    self.activation_created_at=Time.now
+    self.activation_token = new_token
+    self.activation_created_at = Time.now
   end
 end
