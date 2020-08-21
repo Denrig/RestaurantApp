@@ -3,7 +3,7 @@ class CreateOrders < ActiveRecord::Migration[6.0]
     create_table :orders do |t|
       t.integer :city
       t.text :address
-      t.integer :status,default: 0
+      t.integer :status, default: 0
 
       t.string :phone
       t.text :products

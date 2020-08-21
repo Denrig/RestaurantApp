@@ -12,7 +12,7 @@
       %tr.product-item
         = render 'shared/product_horizontal_item',product: product,product_price: product_price
         %td.quantity
-          = link_to '', change_quantity_url(id: product_cart.id, :operation => 'sub'), method: 'post', class:'glyphicon glyphicon-minus'  
+          = link_to '', change_quantity_url(id: product_cart.id, :operation => 'sub'), method: 'post', class:'glyphicon glyphicon-minus'
           = product_cart.quantity
           = link_to '', change_quantity_url(id: product_cart.id, :operation => 'add'), method: 'post', class:'glyphicon glyphicon-plus'
         %td.action

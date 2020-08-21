@@ -10,7 +10,7 @@
         = select_tag 'sorting', options_for_select([]), class: ['selector'], prompt: 'Sort'
       .selector-container
         = select_tag 'vegetarian', options_for_select([]), class: ['selector'], prompt: 'Vegetarian'
-  = will_paginate  
+  = will_paginate
   .products-list.flex-centered
     - @products.each do |product|  
       .product-block.flex-centered
@@ -19,4 +19,4 @@
         .product-category.flex-centered= product.category
         .product-price.flex-centered= product.price.to_s + " $"
         = button_to 'Add to cart', products_carts_url, method: 'post', class: 'cart-button', params: { product: product.id }
-  = will_paginate  
+  = will_paginate
