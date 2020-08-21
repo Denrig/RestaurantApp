@@ -26,10 +26,6 @@ class User < ApplicationRecord
     AccountMailer.reset_password(self).deliver_now
   end
 
-  def create_reset_token
-    update_columns(reset_token: new_token, reset_created_at: Time.now)
-  end
-
   private
 
   def create_activation_token
