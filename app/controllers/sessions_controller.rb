@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :authorize, only: %i[new create]
+  skip_before_action :authorized?, only: %i[new create]
 
   def new; end
 
@@ -7,17 +7,17 @@ class SessionsController < ApplicationController
     user = User.find_by(email: seession_params[:email])
     if user&.authenticate(seession_params[:password])
       if user.activated?
-        foraward_url = session[:forward_url]
+        forward_url = session[:forward_url]
         reset_session
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         flash[:success] = "Welcome #{user.name}!"
-        redirect_to foraward_url || user
+        redirect_to forward_url || user
       else
         message = 'Account not activated. '
         message += 'Check your email for the activation link.'
         flash[:warning] = message
-        redirect_to root_url
+        redirect_to login_url
       end
     else
       flash.now[:danger] = 'Invalid email/password combination'
@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to root_url
+    redirect_to login_url
   end
 
   private

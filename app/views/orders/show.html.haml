@@ -1,0 +1,10 @@
+%h1.order-prompt
+  Order number ##{@order.id}
+  .stuatus{class: "#{@order.status}"} Status: #{@order.status}
+%table.products-list
+  %tr.product-item
+    %td.image Image
+    %td.title Name
+    %td.price Price
+    %td.quantity Quantity
+  = render @order

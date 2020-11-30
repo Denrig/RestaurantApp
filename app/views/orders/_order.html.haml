@@ -1,0 +1,20 @@
+.delivery-information.flex-centered
+  %span 
+    Name: #{order.user.name}
+    %br/
+    Email: #{order.user.email}
+    %br/
+    Total: #{order.total} $
+  %span
+    City: #{order.city}
+    %br/
+    Address: #{order.address}
+    %br/
+    Phone: #{order.phone}
+  .qr-image
+    = create_qr_image(order_url(order.one_time_token))
+- order.product_orders.each do |product_order|
+  %tr.product-item
+    = render 'shared/product_horizontal_item',product: product_order.product,product_price: product_order.price * product_order.quantity
+    %td.quantity
+      = product_order.quantity

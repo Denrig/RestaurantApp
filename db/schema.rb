@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_12_193732) do
+ActiveRecord::Schema.define(version: 2020_08_20_084223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,31 @@ ActiveRecord::Schema.define(version: 2020_08_12_193732) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.integer "city"
+    t.text "address"
+    t.integer "status", default: 0
+    t.string "phone"
+    t.text "products"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "one_time_token"
+    t.datetime "one_time_created_at"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "product_orders", force: :cascade do |t|
+    t.bigint "product_id"
+    t.bigint "order_id"
+    t.integer "quantity"
+    t.integer "price"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_product_orders_on_order_id"
+    t.index ["product_id"], name: "index_product_orders_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.text "category"
@@ -67,14 +92,16 @@ ActiveRecord::Schema.define(version: 2020_08_12_193732) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
-    t.string "remember_digest"
+    t.string "remember_token"
     t.boolean "admin", default: false
     t.boolean "activated", default: false
     t.datetime "activated_at"
-    t.string "activation_digest"
-    t.string "reset_digest"
-    t.datetime "reset_send_at"
+    t.string "activation_token"
+    t.string "reset_token"
+    t.datetime "reset_created_at"
     t.boolean "active", default: false
+    t.datetime "activation_created_at"
+    t.datetime "remember_created_at"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

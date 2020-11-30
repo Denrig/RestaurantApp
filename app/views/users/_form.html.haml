@@ -9,11 +9,11 @@
       .input-with-icon
         %span.glyphicon.glyphicon-envelope
         = f.email_field :email, class: 'form-control',placeholder: 'Email'
-      .input-with-icon
-        %span.glyphicon.glyphicon-certificate 
-        = f.password_field :password, class: 'form-control',placeholder: 'Password'
-      .input-with-icon
-        %span.glyphicon.glyphicon-ok 
-        = f.password_field :password_confirmation, class: 'form-control',placeholder: 'Confirm Password'
-
+      - if params[:action] == 'new'
+        .input-with-icon
+          %span.glyphicon.glyphicon-certificate
+          = f.password_field :password, class: 'form-control',placeholder: 'Password'
+        .input-with-icon
+          %span.glyphicon.glyphicon-certificate
+          = f.password_field :password_confirmation, class: 'form-control',placeholder: 'Password Confirmation'
       = f.submit local_assigns[:message], class: "btn btn-primary"

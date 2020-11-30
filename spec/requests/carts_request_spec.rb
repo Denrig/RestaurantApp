@@ -9,7 +9,7 @@ RSpec.describe CartsController, type: :request do
   end
 
   it 'Add to cart before login' do
-    post '/carts', params: { porduct: @product }
+    post products_carts_url, params: { porduct: @product }
     expect(@user.cart.products.count).to be 0
   end
 
@@ -17,7 +17,6 @@ RSpec.describe CartsController, type: :request do
     post login_path, params: { session: { email: 'thisdude@mail.com', password: 'password' } }
     expect(response).to have_http_status(:redirect)
 
-    post '/carts', params: { porduct: @product }
-   # expect(@user.cart.products.count).to be  > 0
+    post products_carts_url, params: { porduct: @product }
   end
 end

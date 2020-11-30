@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :correct_user, only: %i[edit update]
-  skip_before_action :authorize, only: %i[new create]
+  before_action :correct_user, only: %i[edit update show]
+  skip_before_action :authorized?, only: %i[new create]
 
   def new
     @user = User.new
@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      puts @user.activation_token
       @user.send_activation_email
       flash[:info] = 'Please check your email to activate your account'
       redirect_to login_url
@@ -45,6 +44,6 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find(params[:id])
-    redirect_to root_url unless @user == current_user
+    check_user(@user)
   end
 end

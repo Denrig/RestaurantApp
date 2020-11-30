@@ -1,0 +1,18 @@
+@import "../pages/orders.scss";
+
+.order-prompt {
+  background-color: transparent;
+}
+.actions {
+  display: flex;
+  width: 50px;
+  height: 10px;
+  justify-content: space-between;
+}
+
+.accept {
+  color: $light-green;
+}
+.reject {
+  color: $light-red;
+}

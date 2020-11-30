@@ -1,4 +1,4 @@
 %h1 Hi #{@user.name} ,
 
 %p Welcome to the Restaurant App! Click on the link below to activate your account:
-= link_to "Activation", edit_account_management_account_activation_url(@user, email: @user.email)
+= link_to "Activation", edit_account_management_account_activation_url(@user.activation_token)

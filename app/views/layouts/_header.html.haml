@@ -1,7 +1,7 @@
 %header#header
   #tool-bar
     = image_tag 'logo.png', alt: 'Logo', class: 'logo-img'
-    .main-brand Eurekka Caffe
+    .main-brand Eurekka Caffee
     %ul#button-bar
       %li= link_to 'Home', products_url, class: ['inside-pointer']
       %li= link_to 'About', '#about', class: ['inside-pointer']
@@ -19,20 +19,23 @@
               %span.glyphicon.glyphicon-shopping-cart
               = link_to "My Cart", current_user.cart
             %li
+              %span.glyphicon.glyphicon-th-list
+              = link_to "My Orders", orders_url
+            %li
               %span.glyphicon.glyphicon-user
               = link_to "Profile", current_user
             %li
               %span.glyphicon.glyphicon-cog
               = link_to "Settings", '#'
             %li.divider
-            -if @current_user.admin?
+            - if @current_user.admin?
               %li
                 %span.glyphicon.glyphicon-wrench
                 = link_to "Admin Page", admin_root_url
             %li
               %span.glyphicon.glyphicon-log-out
               = link_to "Log Out", logout_path , method: :delete
-      -else
+      - else
         = link_to 'Log In', login_path, class: ['btn btn-primary']
   .informational-text
     %span.big-text ORDERING FOOD

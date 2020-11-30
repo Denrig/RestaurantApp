@@ -1,6 +1,18 @@
-.profile
+.profile.flex-centered
   %aside.col-md-3
     %secition.user-info
       %h1
         = @user.name
         = gravatar_for @user
+      %h3
+        = @user.email
+    = link_to 'Edit',edit_user_url(@user),class:'btn btn-primary'
+    = link_to 'My orders',orders_url,class:'btn btn-primary'
+  .previous-orders.flex-centered
+    %h1 Previous Orders
+    %ul.orders-list.flex-centered
+      - @user.orders.each do |order|
+        %li.flex-centered
+          %span= order.created_at.strftime("Placed at on %d/%m/%Y at %I:%M %p")
+          %span Total #{order.total} $
+          %span.status{class: "#{order.status}"} Status: #{order.status.capitalize}

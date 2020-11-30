@@ -1,0 +1,13 @@
+- @orders.each do |order|
+  %a.accordion-toggle.order-prompt{'data-toggle'=> 'collapse',:href => "#hidden-content#{order.id.to_s}", 'role' => "button",'aria-expanded' => "false",'aria-controls'=>"hidden-content#{order.id.to_s}"}
+    %span Order number ##{order.id}
+    %span= order.created_at.strftime("Placed at on %d/%m/%Y at %I:%M %p")
+    %span.status{class: "#{order.status}"} Status: #{order.status.capitalize}
+  %div.collapse{:id => "hidden-content#{order.id}"}
+    %table.products-list
+      %tr.product-item
+        %td.image Image
+        %td.title Name
+        %td.price Price
+        %td.quantity Quantity
+      = render order

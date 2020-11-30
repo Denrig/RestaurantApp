@@ -1,3 +1,14 @@
+.products-header {
+  display: flex;
+  justify-content: space-between;
+  .glyphicon {
+    color: white;
+    &:hover {
+      color: $light-gray;
+    }
+  }
+}
+
 .products-list {
   width: 100%;
   height: inherit;
@@ -16,13 +27,11 @@
 }
 
 .insert-section {
-  border-right: 1px solid $light-gray;
-  align-items: flex-start;
-  padding: 30px 0 0 0;
-  form {
-    border-radius: 5px;
-  }
+  border-radius: 5px;
+  flex-direction: column;
+  .btn,
   .btn-primary {
+    width: 150px;
     background-color: $light-blue;
     border-color: $light-gray;
   }
